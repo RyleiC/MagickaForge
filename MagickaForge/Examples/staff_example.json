@@ -79,6 +79,14 @@
       "Types": "",
       "Faction": "None",
       "BuffType": "Boost",
+      "BuffVisualCategory": "Defensive",
+      "BuffColor": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "BuffRadius": 0.4,
+      "BuffDuration": 2,
       "BoostAmount": 10
     }
   ]

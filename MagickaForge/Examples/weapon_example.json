@@ -179,6 +179,14 @@
       "Types": "",
       "Faction": "None",
       "BuffType": "ModifySpellRange",
+      "BuffVisualCategory": "Defensive",
+      "BuffColor": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "BuffRadius": 0.4,
+      "BuffDuration": 2,
       "SpellRangeMultiplier": 10,
       "SpellRangeModifier": 1
     }

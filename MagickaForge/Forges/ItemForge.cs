@@ -189,13 +189,13 @@ namespace MagickaForge.Forges
                 {
                     byte buff = (byte)Enum.Parse(typeof(BuffType), (string)aura["BuffType"], true);
                     writer.Write(buff);
-                    writer.Write(visualCategory);
-                    for (int i = 0; i < color.Length; i++)
-                    {
-                        writer.Write(color[i]);
-                    }
-                    writer.Write(ttl);
-                    writer.Write(effect);
+                    writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)aura["BuffVisualCategory"], true));
+                    JsonArray buffColor = aura["BuffColor"].AsArray();
+                    for (int i = 0; i < buffColor.Count; i++)
+                        writer.Write((float)buffColor[i]);
+
+                    writer.Write((string?)aura["BuffRadius"]);
+                    writer.Write((string?)aura["BuffEffect"]);
                     if (buff <= 1)
                     {
                         writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)aura["AttackProperty"], true));
