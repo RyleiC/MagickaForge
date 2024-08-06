@@ -36,6 +36,7 @@ namespace MagickaForge
             sw.Stop();
             Console.WriteLine($"= XNB Created in {sw.ElapsedMilliseconds} ms =");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadKey();
         }
     }
 }
