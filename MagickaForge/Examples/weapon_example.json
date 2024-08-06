@@ -1,0 +1,186 @@
+{
+  "Name": "item_example",
+  "LocalizedName": "#item_weapon23",
+  "LocalizedDescription": "#item_weapon23d",
+  "Sounds": [],
+  "Grabbable": true,
+  "Bound": false,
+  "BlockStrength": 500,
+  "WeaponClass": "Slash_Slow",
+  "CooldownTime": 0,
+  "HideModel": false,
+  "HideEffects": false,
+  "PauseSounds": false,
+  "Resistances": [
+    {
+      "Element": "Physical",
+      "Multiplier": 0.5,
+      "Modifier": 0,
+      "StatusImmunity": true
+    }
+  ],
+  "PassiveAbilityType": 0,
+  "PassiveAbilityStrength": 0,
+  "Effects": [
+    "sparkling"
+  ],
+  "Lights": [
+    {
+      "Radius": 8,
+      "DiffuseColor": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "AmbientColor": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "SpecularAmount": 1,
+      "LightVariationType": "None",
+      "VariationAmount": 0,
+      "VariationSpeed": 0
+    }
+  ],
+  "HasSpecialAbility": false,
+  "SpecialAbilityCooldown": 0,
+  "SpecialAbility": {},
+  "MeleeRange": 1.3,
+  "MeleeMultihit": true,
+  "MeleeConditions": [
+    {
+      "ConditionType": "Hit",
+      "Hitpoints": -1,
+      "Element": "None",
+      "Threshold": 0,
+      "Time": 0,
+      "Repeat": true,
+      "Events": [
+        {
+          "EventType": "Splash",
+          "Event": {
+            "AttackProperty": "Damage",
+            "Element": "Physical",
+            "Amount": 235,
+            "Magnitude": 1,
+            "Radius": 7
+          }
+        },
+        {
+          "EventType": "Splash",
+          "Event": {
+            "AttackProperty": "Knockback",
+            "Element": "Physical",
+            "Amount": 250,
+            "Magnitude": 2,
+            "Radius": 7
+          }
+        },
+        {
+          "EventType": "Effect",
+          "Event": {
+            "Follow": false,
+            "WorldAligned": false,
+            "Effect": "mortar_explosion"
+          }
+        },
+        {
+          "EventType": "CameraShake",
+          "Event": {
+            "Time": 1,
+            "Magnitude": 1.3,
+            "AtPosition": false
+          }
+        },
+        {
+          "EventType": "Damage",
+          "Event": {
+            "AttackProperty": "Damage",
+            "Element": "Physical",
+            "Amount": 700,
+            "Magnitude": 1,
+            "VelocityBased": false
+          }
+        },
+        {
+          "EventType": "Sound",
+          "Event": {
+            "Bank": "Weapons",
+            "Cue": "wep_bomb_explode",
+            "Magnitude": 2,
+            "StopOnRemove": true
+          }
+        },
+        {
+          "EventType": "Sound",
+          "Event": {
+            "Bank": "Weapons",
+            "Cue": "wep_goblin_captain_sword_hit_flesh",
+            "Magnitude": 1,
+            "StopOnRemove": true
+          }
+        }
+      ]
+    },
+    {
+      "ConditionType": "Default",
+      "Hitpoints": -1,
+      "Element": "None",
+      "Threshold": 0,
+      "Time": 0,
+      "Repeat": true,
+      "Events": [
+        {
+          "EventType": "Sound",
+          "Event": {
+            "Bank": "Weapons",
+            "Cue": "wep_goblin_captain_sword_swing",
+            "Magnitude": 1,
+            "StopOnRemove": true
+          }
+        }
+      ]
+    }
+  ],
+  "RangedRange": 0,
+  "Facing": false,
+  "Homing": 0,
+  "RangedElevation": 0,
+  "RangedDanger": 0,
+  "GunRange": 0,
+  "GunClip": 0,
+  "GunRate": 0,
+  "GunAccuracy": 0,
+  "GunSound": "",
+  "GunMuzzleEffect": "",
+  "GunShellEffect": "",
+  "GunTracerVelocity": 0,
+  "GunTracer": "",
+  "GunNonTracer": "",
+  "GunConditions": [],
+  "ProjectileModel": "",
+  "RangedConditions": [],
+  "Scale": 1,
+  "Model": "..\\..\\..\\Models\\Items_Wizard\\gram_0",
+  "Auras": [
+    {
+      "AuraTarget": "Friendly",
+      "AuraType": "Buff",
+      "VisualCategory": "Offensive",
+      "Color": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "Effect": "sparkling",
+      "Duration": 660000,
+      "Radius": 8,
+      "Types": "",
+      "Faction": "None",
+      "BuffType": "ModifySpellRange",
+      "SpellRangeMultiplier": 10,
+      "SpellRangeModifier": 1
+    }
+  ]
+}

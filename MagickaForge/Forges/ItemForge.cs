@@ -287,7 +287,7 @@ namespace MagickaForge.Forges
                     {
                         writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)itemEvent["AttackProperty"], true));
                         writer.Write((int)Enum.Parse(typeof(Elements), (string)itemEvent["Element"], true));
-                        writer.Write((float)itemEvent["Amount"]);
+                        writer.Write((int)itemEvent["Amount"]);
                         writer.Write((float)itemEvent["Magnitude"]);
                         writer.Write((float)itemEvent["Radius"]);
                     }
