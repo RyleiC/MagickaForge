@@ -194,7 +194,7 @@ namespace MagickaForge.Forges
                     for (int i = 0; i < buffColor.Count; i++)
                         writer.Write((float)buffColor[i]);
 
-                    writer.Write((string?)aura["BuffRadius"]);
+                    writer.Write((float)aura["BuffRadius"]);
                     writer.Write((string?)aura["BuffEffect"]);
                     if (buff <= 1)
                     {
