@@ -1,12 +1,11 @@
 ﻿using MagickaForge.Enums;
 using System.Data;
 using System.Text.Json.Nodes;
-using System.Xml.Linq;
 
 namespace MagickaForge.Forges
 {
-    #pragma warning disable CS8602
-    #pragma warning disable CS8604
+#pragma warning disable CS8602
+#pragma warning disable CS8604
     public class ItemForge
     {
         private readonly byte[] XNB_HEADER =
@@ -23,7 +22,7 @@ namespace MagickaForge.Forges
 
         public void InstructionsToXNB(string InstructionPath)
         {
-            
+
             if (!File.Exists(InstructionPath))
             {
                 throw new System.IO.FileNotFoundException(InstructionPath);
@@ -151,7 +150,7 @@ namespace MagickaForge.Forges
             writer.Write((float)instructionNode["Scale"]);
             writer.Write((string?)instructionNode["Model"]);
             InterpretAura(instructionNode["Auras"].AsArray(), writer);
-            
+
             writer.Close(); //END
         }
 
