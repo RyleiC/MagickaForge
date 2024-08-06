@@ -51,7 +51,7 @@ namespace MagickaForge.Forges
 
             foreach (JsonObject sounds in arraySounds)
             {
-                writer.Write((string)sounds["Cue"]);
+                writer.Write((string?)sounds["Cue"]);
                 writer.Write((int)Enum.Parse(typeof(Banks), (string?)sounds["Wavebank"], true));
             }
 
