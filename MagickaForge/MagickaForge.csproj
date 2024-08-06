@@ -14,10 +14,10 @@
     <None Update="Examples\weapon_example.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Guides\ItemForge Guide.md">
+    <None Update="Guides\ItemForge Guide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Guides\Valid Values.md">
+    <None Update="Guides\Valid Values.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
