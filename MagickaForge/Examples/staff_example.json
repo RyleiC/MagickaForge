@@ -86,6 +86,7 @@
         8
       ],
       "BuffRadius": 0.4,
+      "BuffEffect": "",
       "BuffDuration": 2,
       "BoostAmount": 10
     }

@@ -186,6 +186,7 @@
         0.4
       ],
       "BuffRadius": 0.4,
+      "BuffEffect": "",
       "BuffDuration": 2,
       "SpellRangeMultiplier": 10,
       "SpellRangeModifier": 1
