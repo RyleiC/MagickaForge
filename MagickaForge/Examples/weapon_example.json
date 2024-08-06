@@ -179,7 +179,7 @@
       "Types": "",
       "Faction": "None",
       "BuffType": "ModifySpellRange",
-      "BuffVisualCategory": "Defensive",
+      "BuffVisualCategory": "Offensive",
       "BuffColor": [
         0.4,
         0.4,

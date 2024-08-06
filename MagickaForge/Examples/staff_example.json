@@ -81,9 +81,9 @@
       "BuffType": "Boost",
       "BuffVisualCategory": "Defensive",
       "BuffColor": [
+        8,
         0.4,
-        0.4,
-        0.4
+        8
       ],
       "BuffRadius": 0.4,
       "BuffDuration": 2,
