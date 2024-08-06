@@ -1,5 +1,5 @@
 {
-  "Name": "item_example",
+  "Name": "weapon_example",
   "LocalizedName": "#item_weapon23",
   "LocalizedDescription": "#item_weapon23d",
   "Sounds": [],
@@ -19,7 +19,7 @@
       "StatusImmunity": true
     }
   ],
-  "PassiveAbilityType": 0,
+  "PassiveAbilityType": "None",
   "PassiveAbilityStrength": 0,
   "Effects": [
     "sparkling"

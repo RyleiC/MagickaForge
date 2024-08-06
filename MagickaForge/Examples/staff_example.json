@@ -1,0 +1,85 @@
+{
+  "Name": "staff_example",
+  "LocalizedName": "#item_staff02",
+  "LocalizedDescription": "#item_staff01d",
+  "Sounds": [],
+  "Grabbable": true,
+  "Bound": false,
+  "BlockStrength": 500,
+  "WeaponClass": "Staff",
+  "CooldownTime": 0,
+  "HideModel": false,
+  "HideEffects": false,
+  "PauseSounds": false,
+  "Resistances": [
+    {
+      "Element": "Life",
+      "Multiplier": -1,
+      "Modifier": 0,
+      "StatusImmunity": false
+    },
+    {
+      "Element": "Arcane",
+      "Multiplier": -1,
+      "Modifier": 0,
+      "StatusImmunity": false
+    }
+  ],
+  "PassiveAbilityType": "MoveSpeed",
+  "PassiveAbilityStrength": 1,
+  "Effects": [
+  ],
+  "Lights": [
+  ],
+  "HasSpecialAbility": true,
+  "SpecialAbilityCooldown": 1,
+  "SpecialAbility": {
+    "Type": "Starfall",
+    "Animation": "Cast_Area_Ground",
+    "Hash": "",
+    "Elements": []
+  },
+  "MeleeRange": 0,
+  "MeleeMultihit": false,
+  "MeleeConditions": [
+  ],
+  "RangedRange": 0,
+  "Facing": false,
+  "Homing": 0,
+  "RangedElevation": 0,
+  "RangedDanger": 0,
+  "GunRange": 0,
+  "GunClip": 0,
+  "GunRate": 0,
+  "GunAccuracy": 0,
+  "GunSound": "",
+  "GunMuzzleEffect": "",
+  "GunShellEffect": "",
+  "GunTracerVelocity": 0,
+  "GunTracer": "",
+  "GunNonTracer": "",
+  "GunConditions": [],
+  "ProjectileModel": "",
+  "RangedConditions": [],
+  "Scale": 1,
+  "Model": "..\\..\\..\\Models\\Items_Wizard\\staff_schroom_0",
+  "Auras": [
+    {
+      "AuraTarget": "Friendly",
+      "AuraType": "Buff",
+      "VisualCategory": "Defensive",
+      "Color": [
+        8,
+        0,
+        8
+      ],
+      "Effect": "sparkling",
+      "Duration": 660000,
+      "Radius": 4,
+      "Types": "",
+      "Faction": "None",
+      "BuffType": "Boost",
+      "BoostAmount": 10
+    }
+  ]
+}

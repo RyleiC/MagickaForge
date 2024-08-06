@@ -1,6 +1,7 @@
 ﻿using MagickaForge.Enums;
 using System.Data;
 using System.Text.Json.Nodes;
+using System.Xml.Linq;
 
 namespace MagickaForge.Forges
 {
@@ -74,7 +75,7 @@ namespace MagickaForge.Forges
                 writer.Write((bool)resistance["StatusImmunity"]);
             }
 
-            writer.Write((byte)instructionNode["PassiveAbilityType"]);
+            writer.Write((byte)Enum.Parse(typeof(PassiveAbilities), (string?)instructionNode["PassiveAbilityType"], true));
             writer.Write((float)instructionNode["PassiveAbilityStrength"]);
 
             JsonArray arrayEffects = instructionNode["Effects"].AsArray();
