@@ -1,0 +1,347 @@
+﻿{
+  "Name": "character_example",
+  "LocalizedName": "#Ent_Goblin_Rogue",
+  "Faction": "Evil",
+  "BloodType": "Regular",
+  "IsEthereal": false,
+  "LooksEthereal": false,
+  "Fearless": false,
+  "Uncharmable": false,
+  "Nonslippery": false,
+  "HasFairy": false,
+  "CanSeeInvisible": false,
+  "Sounds": [],
+
+  "Gibs": [
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic01",
+      "Mass": 30,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic02",
+      "Mass": 30,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic03",
+      "Mass": 30,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic04",
+      "Mass": 30,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic01",
+      "Mass": 30,
+      "Scale": 1
+    }
+  ],
+  "Lights": [
+    {
+      "Bone": "root",
+      "Radius": 8,
+      "DiffuseColor": [
+        0.4,
+        0.0,
+        0.4
+      ],
+      "AmbientColor": [
+        0.4,
+        0.0,
+        0.4
+      ],
+      "SpecularAmount": 1,
+      "LightVariationType": "None",
+      "VariationAmount": 0,
+      "VariationSpeed": 0
+    }
+  ],
+  "MaxHitpoints": 800,
+  "NumberOfHealthbars": 1,
+  "Undying": false,
+  "UndieTime": 1.0,
+  "UndieHitpoints": 800,
+  "PainTolerance": 100,
+  "KnockdownTolerance": 0.0,
+  "ScoreValue": 3000,
+  "XPValue": 1000,
+  "RewardOnKill": true,
+  "RewardOnOverkill": true,
+  "Regeneration": 100,
+  "MaxPanic": 5,
+  "ZapModifier": 1,
+  "Length": 1,
+  "Radius": 1,
+  "Mass": 100,
+  "Speed": 5,
+  "TurnSpeed": 5,
+  "BleedRate": 50,
+  "StunTime": 1,
+  "SummonElementBank": "Characters",
+  "SummonElementCue": "chr_druid_precast",
+  "Resistances": [
+    {
+      "Element": "Lightning",
+      "Multiplier": -2,
+      "Modifier": 0,
+      "StatusImmunity": false
+    },
+    {
+      "Element": "Water",
+      "Multiplier": 1.8,
+      "Modifier": 30,
+      "StatusImmunity": false
+    },
+    {
+      "Element": "Physical",
+      "Multiplier": 1.8,
+      "Modifier": 30,
+      "StatusImmunity": false
+    }
+  ],
+
+  "Models": [
+    {
+      "Model": "..\\..\\models\\characters\\goblin\\goblin_rogue_archer_mesh_0",
+      "Scale": 1,
+      "Tint": [ 0, 0, 0 ]
+    }
+  ],
+  "Animation": "..\\..\\models\\characters\\goblin\\goblin_animation",
+  "Effects": [
+    {
+      "Bone": "Root",
+      "Effect": "Grimlab_Lightning"
+    }
+  ],
+  "AnimationClips": [
+    {
+      "AnimationType": "attack_melee0",
+      "AnimationKey": "attack_dagger",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+        {
+          "ActionType": "DealDamage",
+          "ActionStart": 0.5,
+          "ActionEnd": 0.8,
+          "WeaponSlot": 0,
+          "Target": "All"
+        }
+      ]
+    },
+    {
+      "AnimationType": "attack_melee1",
+      "AnimationKey": "attack_dagger",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+        {
+          "ActionType": "DealDamage",
+          "ActionStart": 0.5,
+          "ActionEnd": 0.8,
+          "WeaponSlot": 0,
+          "Target": "All"
+        }
+      ]
+    },
+    {
+      "AnimationType": "attack_recoil",
+      "AnimationKey": "attack_dagger_recoil",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "taunt0",
+      "AnimationKey": "taunt_rogue0",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "special0",
+      "AnimationKey": "taunt_rogue0",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "taunt1",
+      "AnimationKey": "taunt_rogue1",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "taunt2",
+      "AnimationKey": "taunt_rogue2",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "die0",
+      "AnimationKey": "die0",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "die0",
+      "AnimationKey": "die1",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "die_drown0",
+      "AnimationKey": "die_drown0",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "die_drown1",
+      "AnimationKey": "die_drown1",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "hit",
+      "AnimationKey": "hit",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "hit_fly",
+      "AnimationKey": "hit_fly",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "hit_stun_end",
+      "AnimationKey": "hit_stun_end",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "hit_stun_begin",
+      "AnimationKey": "hit_stun_begin",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "hit_slide",
+      "AnimationKey": "hit_slide",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "idle",
+      "AnimationKey": "idle",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "move_run",
+      "AnimationKey": "move_run",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    },
+    {
+      "AnimationType": "move_walk",
+      "AnimationKey": "move_walk",
+      "AnimationSpeed": 1.0,
+      "BlendTime": 0,
+      "Loop": false,
+      "Actions": [
+      ]
+    }
+  ],
+  "Equipment": [
+    {
+      "Bone": "rightattach",
+      "Item": "..\\items\\Wizard\\weapon_thunderblade",
+      "Offset": [ 0, 0, 0 ]
+    }
+  ],
+  "EventConditions": [],
+  "AlertRadius": 23,
+  "GroupChase": 0,
+  "GroupSeperation": 0,
+  "GroupCohesion": 0,
+  "GroupAlignment": 0,
+  "GroupWander": 0,
+  "FriendlyAvoidance": 0,
+  "EnemyAvoidance": 0,
+  "SightAvoidance": 0,
+  "DangerAvoidance": 1,
+  "AngerWeight": 0,
+  "DistanceWeight": 0,
+  "HealthWeight": 0,
+  "Flocking": false,
+  "BreakFreeStrength": 5,
+  "Abilities": [
+    {
+      "AbilityType": "Melee",
+      "Cooldown": 0,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "500",
+      "Animations": [ "attack_melee0", "attack_melee1" ],
+      "MinimumRange": 0,
+      "MaximumRange": 1,
+      "ArcAngle": 0.314,
+      "Weapons": [ 0 ],
+      "Rotate": false
+    }
+  ],
+  "MoveAbilities": [],
+  "Buffs": [],
+  "Auras": []
+}

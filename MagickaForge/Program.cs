@@ -30,8 +30,10 @@ namespace MagickaForge
             Stopwatch sw = Stopwatch.StartNew();
             Console.WriteLine("= Process Starting... =\n");
 
-            ItemForge item = new ItemForge();
-            item.InstructionsToXNB(instructionPath);
+            //ItemForge item = new ItemForge();
+            //item.InstructionsToXNB(instructionPath);
+            CharacterForge characterForge = new CharacterForge();
+            characterForge.InstructionsToXNB(instructionPath, false);
 
             sw.Stop();
             Console.WriteLine($"= XNB Created in {sw.ElapsedMilliseconds} ms =");
