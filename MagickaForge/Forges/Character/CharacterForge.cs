@@ -2,7 +2,7 @@
 using System.Data;
 using System.Text.Json.Nodes;
 
-namespace MagickaForge.Forges
+namespace MagickaForge.Forges.Character
 {
 #pragma warning disable CS8602
 #pragma warning disable CS8604
@@ -11,22 +11,22 @@ namespace MagickaForge.Forges
         bool modernMagicka = false;
         public static readonly byte[] XNB_HEADER =
         {
-    0x58, 0x4E, 0x42, 0x77, 0x04, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x59,
-    0x4D, 0x61, 0x67, 0x69, 0x63, 0x6B, 0x61, 0x2E, 0x43, 0x6F, 0x6E, 0x74,
-    0x65, 0x6E, 0x74, 0x52, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x2E, 0x43,
-    0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x54, 0x65, 0x6D, 0x70,
-    0x6C, 0x61, 0x74, 0x65, 0x52, 0x65, 0x61, 0x64, 0x65, 0x72, 0x2C, 0x20,
-    0x4D, 0x61, 0x67, 0x69, 0x63, 0x6B, 0x61, 0x2C, 0x20, 0x56, 0x65, 0x72,
-    0x73, 0x69, 0x6F, 0x6E, 0x3D, 0x31, 0x2E, 0x30, 0x2E, 0x30, 0x2E, 0x30,
-    0x2C, 0x20, 0x43, 0x75, 0x6C, 0x74, 0x75, 0x72, 0x65, 0x3D, 0x6E, 0x65,
-    0x75, 0x74, 0x72, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
+            0x58, 0x4E, 0x42, 0x77, 0x04, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x59,
+            0x4D, 0x61, 0x67, 0x69, 0x63, 0x6B, 0x61, 0x2E, 0x43, 0x6F, 0x6E, 0x74,
+            0x65, 0x6E, 0x74, 0x52, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x2E, 0x43,
+            0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x54, 0x65, 0x6D, 0x70,
+            0x6C, 0x61, 0x74, 0x65, 0x52, 0x65, 0x61, 0x64, 0x65, 0x72, 0x2C, 0x20,
+            0x4D, 0x61, 0x67, 0x69, 0x63, 0x6B, 0x61, 0x2C, 0x20, 0x56, 0x65, 0x72,
+            0x73, 0x69, 0x6F, 0x6E, 0x3D, 0x31, 0x2E, 0x30, 0x2E, 0x30, 0x2E, 0x30,
+            0x2C, 0x20, 0x43, 0x75, 0x6C, 0x74, 0x75, 0x72, 0x65, 0x3D, 0x6E, 0x65,
+            0x75, 0x74, 0x72, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
         };
         public void InstructionsToXNB(string InstructionPath, bool ModernMagicka)
         {
 
             if (!File.Exists(InstructionPath))
             {
-                throw new System.IO.FileNotFoundException(InstructionPath);
+                throw new FileNotFoundException(InstructionPath);
             }
 
             StreamReader reader = new StreamReader(File.OpenRead(InstructionPath));
@@ -74,6 +74,10 @@ namespace MagickaForge.Forges
 
             JsonArray arrayLights = (JsonArray)instructionNode["Lights"];
             writer.Write(arrayLights.Count);
+            if (arrayLights.Count > 4)
+            {
+                throw new Exception("Items may only have up to 4 lights!");
+            }
             foreach (JsonObject light in arrayLights)
             {
                 writer.Write((string?)light["Bone"]);
@@ -200,7 +204,7 @@ namespace MagickaForge.Forges
                     writer.Write(anim);
                 }
             }
-            InterpretAura(instructionNode["Buffs"].AsArray(), writer);
+            InterpretBuff(instructionNode["Buffs"].AsArray(), writer);
             InterpretAura(instructionNode["Auras"].AsArray(), writer);
 
             writer.Close(); //END
@@ -500,51 +504,55 @@ namespace MagickaForge.Forges
         }
         private void InterpretBuff(JsonArray buffArray, BinaryWriter writer)
         {
-            byte buff = (byte)Enum.Parse(typeof(BuffType), (string)buffArray["BuffType"], true);
-            writer.Write(buff);
-            writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)buffArray["BuffVisualCategory"], true));
-            JsonArray buffColor = buffArray["BuffColor"].AsArray();
-            for (int i = 0; i < buffColor.Count; i++)
-                writer.Write((float)buffColor[i]);
+            writer.Write(buffArray.Count);
+            foreach (JsonObject buffObject in buffArray)
+            {
+                byte buff = (byte)Enum.Parse(typeof(BuffType), (string)buffObject["BuffType"], true);
+                writer.Write(buff);
+                writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)buffObject["BuffVisualCategory"], true));
+                JsonArray buffColor = buffObject["BuffColor"].AsArray();
+                for (int i = 0; i < buffColor.Count; i++)
+                    writer.Write((float)buffColor[i]);
 
-            writer.Write((float)buffArray["BuffRadius"]);
-            writer.Write((string?)buffArray["BuffEffect"]);
-            if (buff <= 1)
-            {
-                writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)buffArray["AttackProperty"], true));
-                writer.Write((int)Enum.Parse(typeof(Elements), (string)buffArray["Element"], true));
-                writer.Write((float)buffArray["Amount"]);
-                writer.Write((float)buffArray["Magnitude"]);
-            }
-            else if (buff == 2)
-            {
-                writer.Write((int)Enum.Parse(typeof(Elements), (string)buffArray["Element"], true));
-                writer.Write((float)buffArray["Multiplier"]);
-                writer.Write((float)buffArray["Modifier"]);
-                writer.Write((bool)buffArray["StatusImmunity"]);
-            }
-            else if (buff == 4)
-            {
-                writer.Write((float)buffArray["BoostAmount"]);
-            }
-            else if (buff == 5)
-            {
-                writer.Write((float)buffArray["AggroReduceAmount"]);
-            }
-            else if (buff == 6)
-            {
-                writer.Write((float)buffArray["HealthMultiplier"]);
-                writer.Write((float)buffArray["HealthModifier"]);
-            }
-            else if (buff == 7)
-            {
-                writer.Write((float)buffArray["SpellTimeMultiplier"]);
-                writer.Write((float)buffArray["SpellTimeModifier"]);
-            }
-            else if (buff == 8)
-            {
-                writer.Write((float)buffArray["SpellRangeMultiplier"]);
-                writer.Write((float)buffArray["SpellRangeModifier"]);
+                writer.Write((float)buffObject["BuffRadius"]);
+                writer.Write((string?)buffObject["BuffEffect"]);
+                if (buff <= 1)
+                {
+                    writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)buffObject["AttackProperty"], true));
+                    writer.Write((int)Enum.Parse(typeof(Elements), (string)buffObject["Element"], true));
+                    writer.Write((float)buffObject["Amount"]);
+                    writer.Write((float)buffObject["Magnitude"]);
+                }
+                else if (buff == 2)
+                {
+                    writer.Write((int)Enum.Parse(typeof(Elements), (string)buffObject["Element"], true));
+                    writer.Write((float)buffObject["Multiplier"]);
+                    writer.Write((float)buffObject["Modifier"]);
+                    writer.Write((bool)buffObject["StatusImmunity"]);
+                }
+                else if (buff == 4)
+                {
+                    writer.Write((float)buffObject["BoostAmount"]);
+                }
+                else if (buff == 5)
+                {
+                    writer.Write((float)buffObject["AggroReduceAmount"]);
+                }
+                else if (buff == 6)
+                {
+                    writer.Write((float)buffObject["HealthMultiplier"]);
+                    writer.Write((float)buffObject["HealthModifier"]);
+                }
+                else if (buff == 7)
+                {
+                    writer.Write((float)buffObject["SpellTimeMultiplier"]);
+                    writer.Write((float)buffObject["SpellTimeModifier"]);
+                }
+                else if (buff == 8)
+                {
+                    writer.Write((float)buffObject["SpellRangeMultiplier"]);
+                    writer.Write((float)buffObject["SpellRangeModifier"]);
+                }
             }
         }
         private void InterpretAura(JsonArray auraArray, BinaryWriter writer)
@@ -686,7 +694,7 @@ namespace MagickaForge.Forges
                         bool fromStaff = (bool)action["FromStaff"];
                         writer.Write(fromStaff);
                         if (!fromStaff)
-                            writer.Write((float)action["Bone"]);
+                            writer.Write((string)action["Bone"]);
                     }
                     else if (type == ActionType.Crouch)
                     {
@@ -833,7 +841,7 @@ namespace MagickaForge.Forges
                     }
                     else if (type == ActionType.Tongue)
                     {
-                        writer.Write((Single)action["MaxLength"]);
+                        writer.Write((float)action["MaxLength"]);
                     }
                     else if (type == ActionType.WeaponVisibility)
                     {

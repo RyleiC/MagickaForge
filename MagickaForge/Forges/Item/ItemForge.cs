@@ -2,14 +2,14 @@
 using System.Data;
 using System.Text.Json.Nodes;
 
-namespace MagickaForge.Forges
+namespace MagickaForge.Forges.Item
 {
 #pragma warning disable CS8602
 #pragma warning disable CS8604
     public class ItemForge
     {
         private readonly byte[] XNB_HEADER =
-{
+        {
             0x58, 0x4E, 0x42, 0x77, 0x04, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x4C,
             0x4D, 0x61, 0x67, 0x69, 0x63, 0x6B, 0x61, 0x2E, 0x43, 0x6F, 0x6E, 0x74,
             0x65, 0x6E, 0x74, 0x52, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x2E, 0x49,
@@ -19,12 +19,13 @@ namespace MagickaForge.Forges
             0x20, 0x43, 0x75, 0x6C, 0x74, 0x75, 0x72, 0x65, 0x3D, 0x6E, 0x65, 0x75,
             0x74, 0x72, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
         };
+
         public void InstructionsToXNB(string InstructionPath)
         {
 
             if (!File.Exists(InstructionPath))
             {
-                throw new System.IO.FileNotFoundException(InstructionPath);
+                throw new FileNotFoundException(InstructionPath);
             }
 
             StreamReader reader = new StreamReader(File.OpenRead(InstructionPath));
@@ -83,8 +84,12 @@ namespace MagickaForge.Forges
                 writer.Write(effect);
             }
 
-            JsonArray arrayLights = (JsonArray)instructionNode["Lights"];
+            JsonArray arrayLights = instructionNode["Lights"].AsArray();
             writer.Write(arrayLights.Count);
+            if (arrayLights.Count > 1)
+            {
+                throw new Exception("Items may only have 1 light!");
+            }
             foreach (JsonObject light in arrayLights)
             {
                 writer.Write((float)light["Radius"]);

@@ -1,4 +1,5 @@
-﻿using MagickaForge.Forges;
+﻿using MagickaForge.Forges.Character;
+using MagickaForge.Forges.Item;
 using System.Diagnostics;
 
 namespace MagickaForge
@@ -10,7 +11,7 @@ namespace MagickaForge
             Console.WriteLine("= Magicka Forge by Rylei. C =");
             Console.ForegroundColor = ConsoleColor.Green;
 
-            string instructionPath, outputPath;
+            string instructionPath, forgeType;
 
             if (args.Length == 0)
             {
@@ -26,14 +27,27 @@ namespace MagickaForge
             {
                 instructionPath = args[0];
             }
-            Console.WriteLine();
+
+            Console.WriteLine("Input the type of forge (Item/Character):");
+            forgeType = Console.ReadLine().ToLower();
+            if (forgeType == null)
+            {
+                throw new ArgumentNullException("Forge type may not be null!");
+            }
+
             Stopwatch sw = Stopwatch.StartNew();
             Console.WriteLine("= Process Starting... =\n");
 
-            //ItemForge item = new ItemForge();
-            //item.InstructionsToXNB(instructionPath);
-            CharacterForge characterForge = new CharacterForge();
-            characterForge.InstructionsToXNB(instructionPath, false);
+            if (forgeType == "item")
+            {
+                ItemForge item = new ItemForge();
+                item.InstructionsToXNB(instructionPath);
+            }
+            else
+            {
+                CharacterForge characterForge = new CharacterForge();
+                characterForge.InstructionsToXNB(instructionPath, false);
+            }
 
             sw.Stop();
             Console.WriteLine($"= XNB Created in {sw.ElapsedMilliseconds} ms =");
