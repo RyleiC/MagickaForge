@@ -2,6 +2,7 @@
 #############################
 Options marked with *FLAG* can have multiple values by adding a comma. [Ex: "Elements": "Fire, Physical"]
 #############################
+
 WeaponClass Options:
 {
         Default,

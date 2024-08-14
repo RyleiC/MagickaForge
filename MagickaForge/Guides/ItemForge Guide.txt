@@ -80,7 +80,7 @@
 - The most complex feature of Magicka items, the condition system determines actions and events that occur on various conditions, such as on hit, miss, death, timer, ect. Multiple types of events exist and multiple can occur on 1 condition
 
 [Float] "RangedRange": 1.4
-- The radius in which a ranged weapon can hit a target
+- The radius of a ranged hitsphere.
 
 [Boolean] "Facing": true
 - Determines whether or not the weapon is aligned with the players diurection
@@ -113,13 +113,13 @@
 - Tracers are disabled, generally not worth messing with.
 
 [Array] "GunConditons": [{"ConditionType": "Hit", "Hitpoints": -1, "Element": "None", "Threshold": 0, "Time": 0, "Repeat": true, "Events": [{"EventType": "Damage", "Event": {"AttackProperty":"Physical","Element": "Physical", "Amount": 35, "Magnitude": 3.4, "VelocityBased": false}}]}}]
-- Same as MeleeConditions
+- Same as MeleeConditions but done with bullets.
 
 [String] "ProjectileModel": "..\\..\\..\\Models\\Missiles\\sausage"
 - The path to a model XNB relative to the Content\Data\items\[Folder Item is In] path.
 
 [Array] "RangedConditons": [{"ConditionType": "Hit", "Hitpoints": -1, "Element": "None", "Threshold": 0, "Time": 0, "Repeat": true, "Events": [{"EventType": "Damage", "Event": {"AttackProperty":"Physical","Element": "Physical", "Amount": 35, "Magnitude": 3.4, "VelocityBased": false}}]}}]
-- Same as MeleeConditions
+- Same as MeleeConditions but done with a projectiel entity.
 
 [Array] "Auras": [{ "AuraTarget": "Friendly", "AuraType": "Buff", "VisualCategory": "Defensive", "Color": [0.1, 0.4, 0.1], "Effect": "life_source", "Duration": 660000, "Radius": 8, "Types": "", "Faction": "None", "BuffType": "DealDamage", "BuffVisualCategory": "Defensive", "BuffColor": [0.1, 0.4, 0.1], "BuffRadius": 0.4, "BuffEffect": "life_source", "BuffDuration": 2, "AttackProperty":"Status, Damage", "Element": "Life", "Amount": -250, "Magnitude": 1}]
 Similarly complex, auras allow you to create well.. auras on the wielder. Auras can be multiple types but the most common is Buff, which applies statuses to nearby enemies. Note that different auras want different information!
