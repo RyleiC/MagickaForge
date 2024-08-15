@@ -69,14 +69,15 @@ namespace MagickaForge.Forges
             writer.Write(auraArray.Count);
             foreach (JsonObject aura in auraArray)
             {
-                AuraType auraType = (AuraType)Enum.Parse(typeof(AuraTarget), (string)aura["AuraTarget"], true);
+                AuraType auraType = (AuraType)Enum.Parse(typeof(AuraType), (string)aura["AuraType"], true);
 
+                writer.Write((byte)Enum.Parse(typeof(AuraTarget), (string)aura["AuraTarget"], true));
                 writer.Write((byte)auraType);
-                writer.Write((byte)Enum.Parse(typeof(AuraType), (string)aura["AuraType"], true));
                 writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)aura["VisualCategory"], true));
 
                 JsonArray color = aura["Color"].AsArray();
-                for (int i = 0; i < color.Count; i++)
+
+                for (var i = 0; i < VECTOR3_LENGTH; i++)
                 {
                     writer.Write((float)color[i]);
                 }
@@ -94,10 +95,11 @@ namespace MagickaForge.Forges
                     writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)aura["BuffVisualCategory"], true));
 
                     JsonArray buffColor = aura["BuffColor"].AsArray();
-                    for (var i = 0; i < buffColor.Count; i++)
+                    for (var i = 0; i < VECTOR3_LENGTH; i++)
                     {
                         writer.Write((float)buffColor[i]);
                     }
+
 
                     writer.Write((float)aura["BuffRadius"]);
                     writer.Write((string?)aura["BuffEffect"]);
@@ -245,7 +247,7 @@ namespace MagickaForge.Forges
 
                         JsonArray offset = conditionEvent["Offset"].AsArray();
 
-                        for (var i = 0; i < 3; i++)
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
                         {
                             writer.Write((float)offset[i]);
                         }
