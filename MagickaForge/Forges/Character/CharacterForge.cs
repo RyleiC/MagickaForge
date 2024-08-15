@@ -4,8 +4,6 @@ using System.Text.Json.Nodes;
 
 namespace MagickaForge.Forges.Character
 {
-#pragma warning disable CS8602
-#pragma warning disable CS8604
     public class CharacterForge : Forge
     {
         //This is contains the initial header for a character XNB before information is written down and is uniform across all files
@@ -24,7 +22,7 @@ namespace MagickaForge.Forges.Character
 
         private bool modernMagicka;
 
-        public CharacterForge(string InstructionPath, JsonObject JsonRoot, bool ModernMagicka) : base(InstructionPath, JsonRoot)
+        public CharacterForge(string InstructionPath, JsonNode JsonRoot, bool ModernMagicka) : base(InstructionPath, JsonRoot)
         {
             modernMagicka = ModernMagicka;
             InstructionsToXNB();
@@ -50,7 +48,7 @@ namespace MagickaForge.Forges.Character
             JsonArray arraySounds = jsonRoot["Sounds"].AsArray();
             writer.Write(arraySounds.Count);
 
-            foreach (JsonObject sounds in arraySounds)
+            foreach (JsonNode sounds in arraySounds)
             {
                 writer.Write((string?)sounds["Cue"]);
                 writer.Write((int)Enum.Parse(typeof(Banks), (string?)sounds["Wavebank"], true));
@@ -58,7 +56,7 @@ namespace MagickaForge.Forges.Character
 
             JsonArray arrayGibs = jsonRoot["Gibs"].AsArray();
             writer.Write(arrayGibs.Count);
-            foreach (JsonObject gib in arrayGibs)
+            foreach (JsonNode gib in arrayGibs)
             {
                 writer.Write((string?)gib["Model"]);
                 writer.Write((float)gib["Mass"]);
@@ -71,19 +69,23 @@ namespace MagickaForge.Forges.Character
             {
                 throw new ArgumentOutOfRangeException("Items may only have up to 4 lights! Please remove some lights or this will crash the game!");
             }
-            foreach (JsonObject light in arrayLights)
+            foreach (JsonNode light in arrayLights)
             {
                 writer.Write((string?)light["Bone"]);
                 writer.Write((float)light["Radius"]);
-                JsonArray array = light["DiffuseColor"].AsArray();
+                JsonArray diffuseColor = light["DiffuseColor"].AsArray();
 
-                for (int i = 0; i < array.Count; i++)
-                    writer.Write((float)array[i]);
+                for (int i = 0; i < VECTOR3_LENGTH; i++)
+                {
+                    writer.Write((float)diffuseColor[i]);
+                }
 
-                array = light["AmbientColor"].AsArray();
+                JsonArray ambientColor = light["AmbientColor"].AsArray();
 
-                for (int i = 0; i < array.Count; i++)
-                    writer.Write((float)array[i]);
+                for (int i = 0; i < VECTOR3_LENGTH; i++)
+                {
+                    writer.Write((float)ambientColor[i]);
+                }
 
                 writer.Write((float)light["SpecularAmount"]);
                 writer.Write((byte)Enum.Parse(typeof(LightVariationType), (string?)light["LightVariationType"], true));
@@ -99,12 +101,14 @@ namespace MagickaForge.Forges.Character
             writer.Write((int)jsonRoot["PainTolerance"]);
             writer.Write((float)jsonRoot["KnockdownTolerance"]);
             writer.Write((int)jsonRoot["ScoreValue"]);
+
             if (modernMagicka)
             {
                 writer.Write((int)jsonRoot["XPValue"]);
                 writer.Write((bool)jsonRoot["RewardOnKill"]);
                 writer.Write((bool)jsonRoot["RewardOnOverkill"]);
             }
+
             writer.Write((int)jsonRoot["Regeneration"]);
             writer.Write((float)jsonRoot["MaxPanic"]);
             writer.Write((float)jsonRoot["ZapModifier"]);
@@ -120,7 +124,7 @@ namespace MagickaForge.Forges.Character
 
             JsonArray arrayResistances = (JsonArray)jsonRoot["Resistances"];
             writer.Write(arrayResistances.Count);
-            foreach (JsonObject resistance in arrayResistances)
+            foreach (JsonNode resistance in arrayResistances)
             {
                 writer.Write((int)Enum.Parse(typeof(Elements), (string?)resistance["Element"], true));
                 writer.Write((float)resistance["Multiplier"]);
@@ -130,20 +134,23 @@ namespace MagickaForge.Forges.Character
 
             JsonArray arrayModels = (JsonArray)jsonRoot["Models"];
             writer.Write(arrayModels.Count);
-            foreach (JsonObject model in arrayModels)
+            foreach (JsonNode model in arrayModels)
             {
                 writer.Write((string?)model["Model"]);
                 writer.Write((float)model["Scale"]);
-                JsonArray array = model["Tint"].AsArray();
+                JsonArray tintColor = model["Tint"].AsArray();
 
-                for (int i = 0; i < array.Count; i++)
-                    writer.Write((float)array[i]);
+                for (var i = 0; i < VECTOR3_LENGTH; i++)
+                {
+                    writer.Write((float)tintColor[i]);
+                }
             }
+
             writer.Write((string?)jsonRoot["Animation"]);
 
             JsonArray arrayEffects = jsonRoot["Effects"].AsArray();
             writer.Write(arrayEffects.Count);
-            foreach (JsonObject effect in arrayEffects)
+            foreach (JsonNode effect in arrayEffects)
             {
                 writer.Write((string?)effect["Bone"]);
                 writer.Write((string?)effect["Effect"]);
@@ -153,18 +160,19 @@ namespace MagickaForge.Forges.Character
             InterpretAnimations(arrayAnimations, writer);
             JsonArray arrayEquipment = jsonRoot["Equipment"].AsArray();
             writer.Write(arrayEquipment.Count);
-            int x = 0;
-            foreach (JsonObject equipment in arrayEquipment)
+
+            var equipID = 0;
+            foreach (JsonNode equipment in arrayEquipment)
             {
-                writer.Write(x);
-                x++;
+                writer.Write(equipID);
                 writer.Write((string?)equipment["Bone"]);
-                JsonArray jsA = equipment["Offset"].AsArray();
-                foreach (float direction in jsA)
+                JsonArray offset = equipment["Offset"].AsArray();
+                for (var i = 0; i < VECTOR3_LENGTH; i++)
                 {
-                    writer.Write(direction);
+                    writer.Write((float)offset[i]);
                 }
                 writer.Write((string?)equipment["Item"]);
+                equipID++;
             }
             JsonArray characterConditions = jsonRoot["EventConditions"].AsArray();
             InterpretCondition(characterConditions);
@@ -184,10 +192,12 @@ namespace MagickaForge.Forges.Character
             writer.Write((float)jsonRoot["HealthWeight"]);
             writer.Write((bool)jsonRoot["Flocking"]);
             writer.Write((float)jsonRoot["BreakFreeStrength"]);
+
             InterpretAbilities(jsonRoot["Abilities"].AsArray());
+
             JsonArray moveAbilities = jsonRoot["MoveAbilities"].AsArray();
             writer.Write(moveAbilities.Count);
-            foreach (JsonObject move in moveAbilities)
+            foreach (JsonNode move in moveAbilities)
             {
                 writer.Write((byte)Enum.Parse(typeof(MovementProperties), (string?)move["MoveProperty"], true));
                 JsonArray anims = move["Animations"].AsArray();
@@ -197,6 +207,7 @@ namespace MagickaForge.Forges.Character
                     writer.Write(anim);
                 }
             }
+
             InterpretBuff(jsonRoot["Buffs"].AsArray());
             InterpretAura(jsonRoot["Auras"].AsArray());
 
@@ -206,24 +217,29 @@ namespace MagickaForge.Forges.Character
         private void InterpretAbilities(JsonArray abilityArray)
         {
             writer.Write(abilityArray.Count);
-            foreach (JsonObject ability in abilityArray)
+
+            foreach (JsonNode ability in abilityArray)
             {
                 AbilityTypes type = (AbilityTypes)Enum.Parse(typeof(AbilityTypes), (string?)ability["AbilityType"], true);
                 writer.Write((string?)ability["AbilityType"]);
                 writer.Write((float)ability["Cooldown"]);
                 writer.Write((byte)Enum.Parse(typeof(AbilityTarget), (string?)ability["AbilityTarget"], true));
-                bool hasFuzzyE = (string?)ability["FuzzyExpression"] != string.Empty;
-                writer.Write(hasFuzzyE);
-                if (hasFuzzyE)
+
+                bool hasFuzzyExpression = (string?)ability["FuzzyExpression"] != string.Empty;
+
+                writer.Write(hasFuzzyExpression);
+                if (hasFuzzyExpression)
                 {
                     writer.Write((string?)ability["FuzzyExpression"]);
                 }
+
                 JsonArray anim = ability["Animations"].AsArray();
                 writer.Write(anim.Count);
                 foreach (string x in anim)
                 {
                     writer.Write(x);
                 }
+
                 if (type == AbilityTypes.Block)
                 {
                     writer.Write((float)ability["Arc"]);
@@ -239,9 +255,9 @@ namespace MagickaForge.Forges.Character
                     writer.Write((int)Enum.Parse(typeof(CastType), (string)ability["CastType"], true));
                     JsonArray elements = ability["Elements"].AsArray();
                     writer.Write(elements.Count);
-                    foreach (string e in elements)
+                    foreach (string element in elements)
                     {
-                        writer.Write((int)Enum.Parse(typeof(Elements), e, true));
+                        writer.Write((int)Enum.Parse(typeof(Elements), element, true));
                     }
                 }
                 if (type == AbilityTypes.Dash)
@@ -249,10 +265,12 @@ namespace MagickaForge.Forges.Character
                     writer.Write((float)ability["MinimumRange"]);
                     writer.Write((float)ability["MaximumRange"]);
                     writer.Write((float)ability["Arc"]);
-                    JsonArray array = ability["Velocity"].AsArray();
+                    JsonArray velocity = ability["Velocity"].AsArray();
 
-                    for (int i = 0; i < array.Count; i++)
-                        writer.Write((float)array[i]);
+                    for (var i = 0; i < VECTOR3_LENGTH; i++)
+                    {
+                        writer.Write((float)velocity[i]);
+                    }
                 }
                 if (type == AbilityTypes.ElementSteal)
                 {
@@ -278,11 +296,15 @@ namespace MagickaForge.Forges.Character
                     writer.Write((float)ability["MinimumRange"]);
                     writer.Write((float)ability["MaximumRange"]);
                     writer.Write((float)ability["ArcAngle"]);
-                    JsonArray array = ability["Weapons"].AsArray();
-                    writer.Write(array.Count);
 
-                    for (int i = 0; i < array.Count; i++)
-                        writer.Write((int)array[i]);
+                    JsonArray weapons = ability["Weapons"].AsArray();
+                    writer.Write(weapons.Count);
+
+                    for (var i = 0; i < VECTOR3_LENGTH; i++)
+                    {
+                        writer.Write((float)weapons[i]);
+                    }
+
                     writer.Write((bool)ability["Rotate"]);
                 }
                 if (type == AbilityTypes.PickUpCharacter || type == AbilityTypes.ZombieGrip)
@@ -300,11 +322,13 @@ namespace MagickaForge.Forges.Character
                     writer.Write((float)ability["Elevation"]);
                     writer.Write((float)ability["Arc"]);
                     writer.Write((float)ability["Accuracy"]);
-                    JsonArray array = ability["Weapons"].AsArray();
-                    writer.Write(array.Count);
+                    JsonArray weapons = ability["Weapons"].AsArray();
+                    writer.Write(weapons.Count);
 
-                    for (int i = 0; i < array.Count; i++)
-                        writer.Write((int)array[i]);
+                    for (var i = 0; i < VECTOR3_LENGTH; i++)
+                    {
+                        writer.Write((float)weapons[i]);
+                    }
                 }
                 if (type == AbilityTypes.SpecialAbilityAbility)
                 {
@@ -320,7 +344,7 @@ namespace MagickaForge.Forges.Character
                     writer.Write((float)ability["Elevation"]);
                     JsonArray damages = ability["Damages"].AsArray();
                     writer.Write(damages.Count);
-                    foreach (JsonObject damage in damages)
+                    foreach (JsonNode damage in damages)
                     {
                         writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)damage["AttackProperty"], true));
                         writer.Write((int)Enum.Parse(typeof(Elements), (string)damage["Element"], true));
@@ -334,50 +358,54 @@ namespace MagickaForge.Forges.Character
         private void InterpretBuff(JsonArray buffArray)
         {
             writer.Write(buffArray.Count);
-            foreach (JsonObject buffObject in buffArray)
+            foreach (JsonNode buffObject in buffArray)
             {
-                byte buff = (byte)Enum.Parse(typeof(BuffType), (string)buffObject["BuffType"], true);
-                writer.Write(buff);
+                BuffType buff = (BuffType)Enum.Parse(typeof(BuffType), (string)buffObject["BuffType"], true);
+                writer.Write((byte)buff);
                 writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)buffObject["BuffVisualCategory"], true));
+
                 JsonArray buffColor = buffObject["BuffColor"].AsArray();
-                for (int i = 0; i < buffColor.Count; i++)
+                for (var i = 0; i < buffColor.Count; i++)
+                {
                     writer.Write((float)buffColor[i]);
+                }
 
                 writer.Write((float)buffObject["BuffRadius"]);
                 writer.Write((string?)buffObject["BuffEffect"]);
-                if (buff <= 1)
+
+                if (buff == BuffType.BoostDamage || buff == BuffType.DealDamage)
                 {
                     writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)buffObject["AttackProperty"], true));
                     writer.Write((int)Enum.Parse(typeof(Elements), (string)buffObject["Element"], true));
                     writer.Write((float)buffObject["Amount"]);
                     writer.Write((float)buffObject["Magnitude"]);
                 }
-                else if (buff == 2)
+                else if (buff == BuffType.Resistance)
                 {
                     writer.Write((int)Enum.Parse(typeof(Elements), (string)buffObject["Element"], true));
                     writer.Write((float)buffObject["Multiplier"]);
                     writer.Write((float)buffObject["Modifier"]);
                     writer.Write((bool)buffObject["StatusImmunity"]);
                 }
-                else if (buff == 4)
+                else if (buff == BuffType.Boost)
                 {
                     writer.Write((float)buffObject["BoostAmount"]);
                 }
-                else if (buff == 5)
+                else if (buff == BuffType.ReduceAgro)
                 {
                     writer.Write((float)buffObject["AggroReduceAmount"]);
                 }
-                else if (buff == 6)
+                else if (buff == BuffType.ModifyHitPoints)
                 {
                     writer.Write((float)buffObject["HealthMultiplier"]);
                     writer.Write((float)buffObject["HealthModifier"]);
                 }
-                else if (buff == 7)
+                else if (buff == BuffType.ModifySpellTTL)
                 {
                     writer.Write((float)buffObject["SpellTimeMultiplier"]);
                     writer.Write((float)buffObject["SpellTimeModifier"]);
                 }
-                else if (buff == 8)
+                else if (buff == BuffType.ModifySpellRange)
                 {
                     writer.Write((float)buffObject["SpellRangeMultiplier"]);
                     writer.Write((float)buffObject["SpellRangeModifier"]);
@@ -388,7 +416,8 @@ namespace MagickaForge.Forges.Character
         private void InterpretAnimations(JsonArray animationArray, BinaryWriter writer)
         {
             writer.Write(animationArray.Count);
-            foreach (JsonObject animation in animationArray)
+
+            foreach (JsonNode animation in animationArray)
             {
                 writer.Write((string?)animation["AnimationType"]);
                 writer.Write((string?)animation["AnimationKey"]);
@@ -399,7 +428,7 @@ namespace MagickaForge.Forges.Character
                 JsonArray actions = animation["Actions"].AsArray();
                 writer.Write(actions.Count);
 
-                foreach (JsonObject action in actions)
+                foreach (JsonNode action in actions)
                 {
                     ActionType type = (ActionType)Enum.Parse(typeof(ActionType), (string)action["ActionType"], true);
                     writer.Write((string)action["ActionType"]);
@@ -437,7 +466,7 @@ namespace MagickaForge.Forges.Character
                         writer.Write((bool)action["DamageOwner"]);
                         JsonArray damages = action["Damages"].AsArray();
                         writer.Write(damages.Count);
-                        foreach (JsonObject damage in damages)
+                        foreach (JsonNode damage in damages)
                         {
                             writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)damage["AttackProperty"], true));
                             writer.Write((int)Enum.Parse(typeof(Elements), (string)damage["Element"], true));
@@ -453,10 +482,10 @@ namespace MagickaForge.Forges.Character
                     else if (type == ActionType.DetachItem)
                     {
                         writer.Write((int)action["WeaponSlot"]);
-                        JsonArray jsA = action["Velocity"].AsArray();
-                        foreach (float direction in jsA)
+                        JsonArray velocity = action["Velocity"].AsArray();
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
                         {
-                            writer.Write(direction);
+                            writer.Write((float)velocity[i]);
                         }
                     }
                     else if (type == ActionType.Ethereal)
@@ -490,30 +519,31 @@ namespace MagickaForge.Forges.Character
                     else if (type == ActionType.Jump)
                     {
                         writer.Write((float)action["Elevation"]);
+
                         float MinRange = (float)action["MinimumRange"];
-                        if (MinRange != 0)
+                        bool hasMinRange = MinRange != 0;
+
+                        writer.Write(hasMinRange);
+                        if (hasMinRange)
                         {
-                            writer.Write(true);
                             writer.Write(MinRange);
                         }
-                        else
-                        {
-                            writer.Write(false);
-                        }
+
                         float MaxRange = (float)action["MaximumRange"];
-                        if (MaxRange != 0)
+                        bool hasMaxRange = MaxRange != 0;
+
+                        writer.Write(hasMaxRange);
+                        if (hasMaxRange)
                         {
-                            writer.Write(true);
-                            writer.Write(MinRange);
+                            writer.Write(MaxRange);
                         }
-                        else { writer.Write(false); }
                     }
                     else if (type == ActionType.Move)
                     {
-                        JsonArray jsA = action["Velocity"].AsArray();
-                        foreach (float direction in jsA)
+                        JsonArray velocity = action["Velocity"].AsArray();
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
                         {
-                            writer.Write(direction);
+                            writer.Write((float)velocity[i]);
                         }
                     }
                     else if (type == ActionType.PlayEffect)
@@ -540,10 +570,10 @@ namespace MagickaForge.Forges.Character
                     else if (type == ActionType.SpawnMissile)
                     {
                         writer.Write((int)action["WeaponSlot"]);
-                        JsonArray jsA = action["Velocity"].AsArray();
-                        foreach (float direction in jsA)
+                        JsonArray velocity = action["Velocity"].AsArray();
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
                         {
-                            writer.Write(direction);
+                            writer.Write((float)velocity[i]);
                         }
                         writer.Write((bool)action["ItemAligned"]);
                     }
@@ -553,7 +583,7 @@ namespace MagickaForge.Forges.Character
                         writer.Write(weaponValue);
                         if (weaponValue < 0)
                         {
-                            JsonObject specialAbility = action["SpecialAbility"].AsObject();
+                            JsonNode specialAbility = action["SpecialAbility"].AsObject();
                             writer.Write((string?)specialAbility["Type"]);
                             writer.Write((string?)specialAbility["Animation"] ?? string.Empty);
                             writer.Write((string?)specialAbility["Hash"] ?? string.Empty);
@@ -582,7 +612,8 @@ namespace MagickaForge.Forges.Character
 
                 }
             }
-            for (int i = 0; i < 26; i++)
+
+            for (var i = 0; i < 26; i++)
             {
                 writer.Write(0);
             }

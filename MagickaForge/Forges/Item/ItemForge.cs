@@ -3,8 +3,6 @@ using System.Text.Json.Nodes;
 
 namespace MagickaForge.Forges.Item
 {
-#pragma warning disable CS8602
-#pragma warning disable CS8604
     public class ItemForge : Forge
     {
         //This is contains the initial header for a item XNB before information is written down and is uniform across all files
@@ -20,7 +18,7 @@ namespace MagickaForge.Forges.Item
             0x74, 0x72, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
         };
 
-        public ItemForge(string InstructionPath, JsonObject JsonRoot) : base(InstructionPath, JsonRoot)
+        public ItemForge(string InstructionPath, JsonNode JsonRoot) : base(InstructionPath, JsonRoot)
         {
             InstructionsToXNB();
         }
@@ -82,15 +80,19 @@ namespace MagickaForge.Forges.Item
             foreach (JsonObject light in arrayLights)
             {
                 writer.Write((float)light["Radius"]);
-                JsonArray array = light["DiffuseColor"].AsArray();
+                JsonArray diffuseColor = light["DiffuseColor"].AsArray();
 
-                for (int i = 0; i < array.Count; i++)
-                    writer.Write((float)array[i]);
+                for (var i = 0; i < VECTOR3_LENGTH; i++)
+                {
+                    writer.Write((float)diffuseColor[i]);
+                }
 
-                array = light["AmbientColor"].AsArray();
+                JsonArray ambientColor = light["AmbientColor"].AsArray();
 
-                for (int i = 0; i < array.Count; i++)
-                    writer.Write((float)array[i]);
+                for (var i = 0; i < VECTOR3_LENGTH; i++)
+                {
+                    writer.Write((float)ambientColor[i]);
+                }
 
                 writer.Write((float)light["SpecularAmount"]);
                 writer.Write((byte)Enum.Parse(typeof(LightVariationType), (string?)light["LightVariationType"], true));

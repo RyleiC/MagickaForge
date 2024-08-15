@@ -9,20 +9,15 @@ namespace MagickaForge
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("= Magicka Forge by Rylei. C =");
-            Console.ForegroundColor = ConsoleColor.Yellow;
 
             string instructionPath;
 
-            if (args.Length == 0)
+            if (args.Length < 1)
             {
                 Console.WriteLine(@"Input the path to a JSON instruction file\directory:");
                 instructionPath = Console.ReadLine();
-
-                if (instructionPath == null)
-                {
-                    throw new ArgumentNullException("Path may not be null!");
-                }
             }
             else
             {
@@ -33,13 +28,13 @@ namespace MagickaForge
             Console.WriteLine("= Process Starting... =\n");
             Console.ForegroundColor = ConsoleColor.White;
 
-            Stopwatch sw = Stopwatch.StartNew();
+            Stopwatch stopWatch = Stopwatch.StartNew();
 
-            Forge.CreateForges(instructionPath);
+            Forge.GenerateXNBs(instructionPath);
 
-            sw.Stop();
+            stopWatch.Stop();
 
-            Console.WriteLine($"= XNB Created in {sw.ElapsedMilliseconds} ms =");
+            Console.WriteLine($"= XNB Created in {stopWatch.ElapsedMilliseconds} ms =");
             Console.ReadKey();
         }
     }

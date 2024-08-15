@@ -9,22 +9,24 @@ namespace MagickaForge.Forges
     {
 
         protected BinaryWriter writer;
-        protected JsonObject jsonRoot;
+        protected JsonNode jsonRoot;
 
-        protected Forge(string InstructionPath, JsonObject JsonRoot)
+        protected const int VECTOR3_LENGTH = 3;
+
+        protected Forge(string InstructionPath, JsonNode JsonRoot)
         {
             writer = new BinaryWriter(File.OpenWrite(Path.ChangeExtension(InstructionPath, ".xnb")));
             jsonRoot = JsonRoot;
         }
 
-        public static void CreateForges(string InstructionPath)
+        public static void GenerateXNBs(string InstructionPath)
         {
             FileAttributes fileAttributes = File.GetAttributes(InstructionPath);
             if (fileAttributes.HasFlag(FileAttributes.Directory))
             {
                 foreach (string file in Directory.GetFiles(InstructionPath, "*.json"))
                 {
-                    CreateForges(file);
+                    GenerateXNBs(file);
                 }
                 return;
             }
@@ -36,11 +38,16 @@ namespace MagickaForge.Forges
                     throw new FileNotFoundException(InstructionPath);
                 }
 
-                StreamReader reader = new StreamReader(File.OpenRead(InstructionPath));
-                JsonObject jsonRoot = JsonNode.Parse(reader.ReadToEnd()).AsObject();
-                reader.Close();
+                JsonNode jsonRoot;
+
+                using (var reader = new StreamReader(File.Open(InstructionPath, FileMode.Open, FileAccess.Read)))
+                {
+                    jsonRoot = JsonNode.Parse(reader.ReadToEnd()).AsObject();
+                    reader.Close();
+                }
 
                 string XNBType = ((string)jsonRoot["XNBType"]).ToLower();
+
                 switch (XNBType)
                 {
                     case "item":
@@ -52,7 +59,7 @@ namespace MagickaForge.Forges
                         break;
 
                     default:
-                        throw new ArgumentException();
+                        throw new ArgumentException("Your XNB type does not match any existing forges, make sure it is either an item or a character!");
                 }
             }
         }
@@ -62,93 +69,90 @@ namespace MagickaForge.Forges
             writer.Write(auraArray.Count);
             foreach (JsonObject aura in auraArray)
             {
-                byte target = (byte)Enum.Parse(typeof(AuraTarget), (string)aura["AuraTarget"], true);
-                byte auraType = (byte)Enum.Parse(typeof(AuraType), (string)aura["AuraType"], true);
-                byte visualCategory = (byte)Enum.Parse(typeof(VisualCategory), (string)aura["VisualCategory"], true);
-                float[] color = new float[3];
-                JsonArray array = aura["Color"].AsArray();
-                string? effect = (string?)aura["Effect"];
-                float ttl = (float)aura["Duration"];
-                float radius = (float)aura["Radius"];
-                string? types = (string?)aura["Types"];
-                int faction = (int)Enum.Parse(typeof(Factions), (string)aura["Faction"], true);
+                AuraType auraType = (AuraType)Enum.Parse(typeof(AuraTarget), (string)aura["AuraTarget"], true);
 
-                writer.Write(target);
-                writer.Write(auraType);
-                writer.Write(visualCategory);
-                for (int i = 0; i < array.Count; i++)
+                writer.Write((byte)auraType);
+                writer.Write((byte)Enum.Parse(typeof(AuraType), (string)aura["AuraType"], true));
+                writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)aura["VisualCategory"], true));
+
+                JsonArray color = aura["Color"].AsArray();
+                for (int i = 0; i < color.Count; i++)
                 {
-                    color[i] = (float)array[i];
-                    writer.Write((float)array[i]);
+                    writer.Write((float)color[i]);
                 }
-                writer.Write(effect);
-                writer.Write(ttl);
-                writer.Write(radius);
-                writer.Write(types);
-                writer.Write(faction);
 
-                if ((AuraType)auraType == AuraType.Buff)
+                writer.Write((string?)aura["Effect"]);
+                writer.Write((float)aura["Duration"]);
+                writer.Write((float)aura["Radius"]);
+                writer.Write((string?)aura["Types"]);
+                writer.Write((int)Enum.Parse(typeof(Factions), (string)aura["Faction"], true));
+
+                if (auraType == AuraType.Buff)
                 {
-                    byte buff = (byte)Enum.Parse(typeof(BuffType), (string)aura["BuffType"], true);
-                    writer.Write(buff);
+                    BuffType buff = (BuffType)Enum.Parse(typeof(BuffType), (string)aura["BuffType"], true);
+                    writer.Write((byte)buff);
                     writer.Write((byte)Enum.Parse(typeof(VisualCategory), (string)aura["BuffVisualCategory"], true));
+
                     JsonArray buffColor = aura["BuffColor"].AsArray();
-                    for (int i = 0; i < buffColor.Count; i++)
+                    for (var i = 0; i < buffColor.Count; i++)
+                    {
                         writer.Write((float)buffColor[i]);
+                    }
 
                     writer.Write((float)aura["BuffRadius"]);
                     writer.Write((string?)aura["BuffEffect"]);
-                    if (buff <= 1)
+
+                    if (buff == BuffType.BoostDamage || buff == BuffType.DealDamage)
                     {
                         writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)aura["AttackProperty"], true));
                         writer.Write((int)Enum.Parse(typeof(Elements), (string)aura["Element"], true));
                         writer.Write((float)aura["Amount"]);
                         writer.Write((float)aura["Magnitude"]);
                     }
-                    else if (buff == 2)
+                    else if (buff == BuffType.Resistance)
                     {
                         writer.Write((int)Enum.Parse(typeof(Elements), (string)aura["Element"], true));
                         writer.Write((float)aura["Multiplier"]);
                         writer.Write((float)aura["Modifier"]);
                         writer.Write((bool)aura["StatusImmunity"]);
                     }
-                    else if (buff == 4)
+                    else if (buff == BuffType.Boost)
                     {
                         writer.Write((float)aura["BoostAmount"]);
                     }
-                    else if (buff == 5)
+                    else if (buff == BuffType.ReduceAgro)
                     {
                         writer.Write((float)aura["AggroReduceAmount"]);
                     }
-                    else if (buff == 6)
+                    else if (buff == BuffType.ModifyHitPoints)
                     {
                         writer.Write((float)aura["HealthMultiplier"]);
                         writer.Write((float)aura["HealthModifier"]);
                     }
-                    else if (buff == 7)
+                    else if (buff == BuffType.ModifySpellTTL)
                     {
                         writer.Write((float)aura["SpellTimeMultiplier"]);
                         writer.Write((float)aura["SpellTimeModifier"]);
                     }
-                    else if (buff == 8)
+                    else if (buff == BuffType.ModifySpellRange)
                     {
                         writer.Write((float)aura["SpellRangeMultiplier"]);
                         writer.Write((float)aura["SpellRangeModifier"]);
                     }
                 }
-                else if ((AuraType)auraType == AuraType.Deflect)
+                else if (auraType == AuraType.Deflect)
                 {
                     writer.Write((float)aura["DeflectStrength"]);
                 }
-                else if ((AuraType)auraType == AuraType.Boost)
+                else if (auraType == AuraType.Boost)
                 {
                     writer.Write((float)aura["BoostStrength"]);
                 }
-                else if ((AuraType)auraType == AuraType.LifeSteal)
+                else if (auraType == AuraType.LifeSteal)
                 {
                     writer.Write((float)aura["LifestealAmount"]);
                 }
-                else if ((AuraType)auraType == AuraType.Love)
+                else if (auraType == AuraType.Love)
                 {
                     writer.Write((float)aura["CharmRadius"]);
                     writer.Write((float)aura["CharmDuration"]);
@@ -167,6 +171,7 @@ namespace MagickaForge.Forges
                 writer.Write((float)condition["Threshold"]);
                 writer.Write((float)condition["Time"]);
                 writer.Write((bool)condition["Repeat"]);
+
                 JsonArray events = (JsonArray)condition["Events"];
                 writer.Write(events.Count);
 
@@ -222,11 +227,9 @@ namespace MagickaForge.Forges
                         writer.Write((bool)conditionEvent["AtPosition"]);
                     }
 
-                    //TODO DECAL
-
                     else if (eventType == EventType.Blast)
                     {
-                        throw new NotImplementedException();
+                        throw new NotImplementedException("Blast is not a valid event option! Please use a different event type!");
                     }
 
                     else if (eventType == EventType.Spawn)
@@ -240,10 +243,12 @@ namespace MagickaForge.Forges
                         writer.Write((int)Enum.Parse(typeof(Order), (string)conditionEvent["Reaction"], true));
                         writer.Write((float)conditionEvent["Rotation"]);
 
-                        JsonArray array = conditionEvent["Offset"].AsArray();
+                        JsonArray offset = conditionEvent["Offset"].AsArray();
 
-                        for (int i = 0; i < array.Count; i++)
-                            writer.Write((float)array[i]);
+                        for (var i = 0; i < 3; i++)
+                        {
+                            writer.Write((float)offset[i]);
+                        }
                     }
 
                     else if (eventType == EventType.SpawnGibs)
@@ -266,10 +271,13 @@ namespace MagickaForge.Forges
                     else if (eventType == EventType.SpawnMissile)
                     {
                         writer.Write((string)conditionEvent["Type"]);
-                        JsonArray array = conditionEvent["Velocity"].AsArray();
+                        JsonArray velocity = conditionEvent["Velocity"].AsArray();
 
-                        for (int i = 0; i < array.Count; i++)
-                            writer.Write((float)array[i]);
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
+                        {
+                            writer.Write((float)velocity[i]);
+                        }
+
                         writer.Write((bool)conditionEvent["Facing"]);
                     }
 
@@ -277,15 +285,19 @@ namespace MagickaForge.Forges
                     else if (eventType == EventType.Light)
                     {
                         writer.Write((float)conditionEvent["Radius"]);
-                        JsonArray array = conditionEvent["DiffuseColor"].AsArray();
+                        JsonArray diffuseColor = conditionEvent["DiffuseColor"].AsArray();
 
-                        for (int i = 0; i < array.Count; i++)
-                            writer.Write((float)array[i]);
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
+                        {
+                            writer.Write((float)diffuseColor[i]);
+                        }
 
-                        array = conditionEvent["AmbientColor"].AsArray();
+                        JsonArray ambientColor = conditionEvent["AmbientColor"].AsArray();
 
-                        for (int i = 0; i < array.Count; i++)
-                            writer.Write((float)array[i]);
+                        for (var i = 0; i < VECTOR3_LENGTH; i++)
+                        {
+                            writer.Write((float)ambientColor[i]);
+                        }
 
                         writer.Write((float)conditionEvent["SpecularAmount"]);
                         writer.Write((byte)Enum.Parse(typeof(LightVariationType), (string?)conditionEvent["LightVariationType"], true));
@@ -315,7 +327,7 @@ namespace MagickaForge.Forges
 
                     if (eventType == EventType.Callback)
                     {
-                        throw new NotSupportedException();
+                        throw new NotSupportedException("Callback is not a valid event option! Please use a different event type!");
                     }
 
                 }
