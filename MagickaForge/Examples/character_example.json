@@ -1,4 +1,7 @@
 ﻿{
+  "XNBType": "character",
+  "ModernMagicka": true,
+
   "Name": "character_example",
   "LocalizedName": "#Ent_Goblin_Rogue",
   "Faction": "Evil",

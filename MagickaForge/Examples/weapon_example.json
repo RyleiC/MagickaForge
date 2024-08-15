@@ -1,4 +1,6 @@
 {
+  "XNBType": "item",
+
   "Name": "weapon_example",
   "LocalizedName": "#item_weapon23",
   "LocalizedDescription": "#item_weapon23d",

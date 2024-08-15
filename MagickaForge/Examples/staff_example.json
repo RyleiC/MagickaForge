@@ -1,4 +1,6 @@
 {
+  "XNBType": "item",
+
   "Name": "staff_example",
   "LocalizedName": "#item_staff02",
   "LocalizedDescription": "#item_staff01d",

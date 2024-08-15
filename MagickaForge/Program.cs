@@ -1,4 +1,5 @@
-﻿using MagickaForge.Forges.Character;
+﻿using MagickaForge.Forges;
+using MagickaForge.Forges.Character;
 using MagickaForge.Forges.Item;
 using System.Diagnostics;
 
@@ -8,50 +9,32 @@ namespace MagickaForge
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("= Magicka Forge by Rylei. C =");
-            Console.ForegroundColor = ConsoleColor.Green;
 
-            string instructionPath, forgeType;
+            string instructionPath;
 
-            if (args.Length == 0)
+            if (args.Length < 1)
             {
-                Console.WriteLine("Input the path to a JSON instruction file:");
+                Console.WriteLine(@"Input the path to a JSON instruction file\directory:");
                 instructionPath = Console.ReadLine();
-
-                if (instructionPath == null)
-                {
-                    throw new ArgumentNullException("Path may not be null!");
-                }
             }
             else
             {
                 instructionPath = args[0];
             }
 
-            Console.WriteLine("Input the type of forge (Item/Character):");
-            forgeType = Console.ReadLine().ToLower();
-            if (forgeType == null)
-            {
-                throw new ArgumentNullException("Forge type may not be null!");
-            }
 
-            Stopwatch sw = Stopwatch.StartNew();
             Console.WriteLine("= Process Starting... =\n");
-
-            if (forgeType == "item")
-            {
-                ItemForge item = new ItemForge();
-                item.InstructionsToXNB(instructionPath);
-            }
-            else
-            {
-                CharacterForge characterForge = new CharacterForge();
-                characterForge.InstructionsToXNB(instructionPath, false);
-            }
-
-            sw.Stop();
-            Console.WriteLine($"= XNB Created in {sw.ElapsedMilliseconds} ms =");
             Console.ForegroundColor = ConsoleColor.White;
+
+            Stopwatch stopWatch = Stopwatch.StartNew();
+
+            Forge.GenerateXNBs(instructionPath);
+
+            stopWatch.Stop();
+
+            Console.WriteLine($"= XNB Created in {stopWatch.ElapsedMilliseconds} ms =");
             Console.ReadKey();
         }
     }
