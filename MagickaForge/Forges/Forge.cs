@@ -7,7 +7,6 @@ namespace MagickaForge.Forges
 {
     public abstract class Forge
     {
-
         protected BinaryWriter writer;
         protected JsonNode jsonRoot;
 
@@ -59,7 +58,8 @@ namespace MagickaForge.Forges
                         break;
 
                     default:
-                        throw new ArgumentException("Your XNB type does not match any existing forges, make sure it is either an item or a character!");
+                        Console.WriteLine($"{InstructionPath} is not a MagickaForge json!");
+                        break;
                 }
             }
         }

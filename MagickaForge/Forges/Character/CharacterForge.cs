@@ -1,5 +1,4 @@
 ﻿using MagickaForge.Enums;
-using System.Data;
 using System.Text.Json.Nodes;
 
 namespace MagickaForge.Forges.Character
@@ -155,9 +154,9 @@ namespace MagickaForge.Forges.Character
                 writer.Write((string?)effect["Bone"]);
                 writer.Write((string?)effect["Effect"]);
             }
+            JsonArray setArray = jsonRoot["AnimationSets"].AsArray();
+            InterpretAnimations(setArray);
 
-            JsonArray arrayAnimations = jsonRoot["AnimationClips"].AsArray();
-            InterpretAnimations(arrayAnimations, writer);
             JsonArray arrayEquipment = jsonRoot["Equipment"].AsArray();
             writer.Write(arrayEquipment.Count);
 
@@ -247,7 +246,7 @@ namespace MagickaForge.Forges.Character
                 }
                 if (type == AbilityTypes.CastSpell)
                 {
-                    writer.Write((float)ability["MinimumRange"]);
+                    writer.Write((float)ability["MinimumRange"]); 
                     writer.Write((float)ability["MaximumRange"]);
                     writer.Write((float)ability["Angle"]);
                     writer.Write((float)ability["ChantTime"]);
@@ -300,9 +299,9 @@ namespace MagickaForge.Forges.Character
                     JsonArray weapons = ability["Weapons"].AsArray();
                     writer.Write(weapons.Count);
 
-                    for (var i = 0; i < VECTOR3_LENGTH; i++)
+                    for (var i = 0; i < weapons.Count; i++)
                     {
-                        writer.Write((float)weapons[i]);
+                        writer.Write((int)weapons[i]);
                     }
 
                     writer.Write((bool)ability["Rotate"]);
@@ -325,7 +324,7 @@ namespace MagickaForge.Forges.Character
                     JsonArray weapons = ability["Weapons"].AsArray();
                     writer.Write(weapons.Count);
 
-                    for (var i = 0; i < VECTOR3_LENGTH; i++)
+                    for (var i = 0; i < weapons.Count; i++)
                     {
                         writer.Write((float)weapons[i]);
                     }
@@ -413,207 +412,210 @@ namespace MagickaForge.Forges.Character
             }
         }
 
-        private void InterpretAnimations(JsonArray animationArray, BinaryWriter writer)
+        private void InterpretAnimations(JsonArray setArray)
         {
-            writer.Write(animationArray.Count);
-
-            foreach (JsonNode animation in animationArray)
+            foreach (JsonNode clip in setArray)
             {
-                writer.Write((string?)animation["AnimationType"]);
-                writer.Write((string?)animation["AnimationKey"]);
-                writer.Write((float)animation["AnimationSpeed"]);
-                writer.Write((float)animation["BlendTime"]);
-                writer.Write((bool)animation["Loop"]);
-
-                JsonArray actions = animation["Actions"].AsArray();
-                writer.Write(actions.Count);
-
-                foreach (JsonNode action in actions)
+                JsonArray animationArray = clip["AnimationClips"].AsArray();
+                writer.Write(animationArray.Count);
+                foreach (JsonNode animation in animationArray)
                 {
-                    ActionType type = (ActionType)Enum.Parse(typeof(ActionType), (string)action["ActionType"], true);
-                    writer.Write((string)action["ActionType"]);
-                    writer.Write((float)action["ActionStart"]);
-                    writer.Write((float)action["ActionEnd"]);
+                    writer.Write((string?)animation["AnimationType"]);
+                    writer.Write((string?)animation["AnimationKey"]);
+                    writer.Write((float)animation["AnimationSpeed"]);
+                    writer.Write((float)animation["BlendTime"]);
+                    writer.Write((bool)animation["Loop"]);
 
-                    if (type == ActionType.Block)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                    }
-                    else if (type == ActionType.BreakFree)
-                    {
-                        writer.Write((float)action["Magnitude"]);
-                        writer.Write((int)action["WeaponSlot"]);
-                    }
-                    else if (type == ActionType.CameraShake)
-                    {
-                        writer.Write((float)action["Duuration"]);
-                        writer.Write((float)action["Magnitude"]);
-                    }
-                    else if (type == ActionType.CastSpell)
-                    {
-                        bool fromStaff = (bool)action["FromStaff"];
-                        writer.Write(fromStaff);
-                        if (!fromStaff)
-                            writer.Write((string)action["Bone"]);
-                    }
-                    else if (type == ActionType.Crouch)
-                    {
-                        writer.Write((float)action["Radius"]);
-                        writer.Write((float)action["Length"]);
-                    }
-                    else if (type == ActionType.DamageGrip)
-                    {
-                        writer.Write((bool)action["DamageOwner"]);
-                        JsonArray damages = action["Damages"].AsArray();
-                        writer.Write(damages.Count);
-                        foreach (JsonNode damage in damages)
-                        {
-                            writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)damage["AttackProperty"], true));
-                            writer.Write((int)Enum.Parse(typeof(Elements), (string)damage["Element"], true));
-                            writer.Write((float)damage["Amount"]);
-                            writer.Write((float)damage["Magnitude"]);
-                        }
-                    }
-                    else if (type == ActionType.DealDamage)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        writer.Write((byte)Enum.Parse(typeof(Targets), (string)action["Target"], true));
-                    }
-                    else if (type == ActionType.DetachItem)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        JsonArray velocity = action["Velocity"].AsArray();
-                        for (var i = 0; i < VECTOR3_LENGTH; i++)
-                        {
-                            writer.Write((float)velocity[i]);
-                        }
-                    }
-                    else if (type == ActionType.Ethereal)
-                    {
-                        writer.Write((bool)action["Ethereal"]);
-                        writer.Write((float)action["EtherealAlpha"]);
-                        writer.Write((float)action["EtherealSpeed"]);
-                    }
-                    else if (type == ActionType.Grip)
-                    {
-                        writer.Write((byte)Enum.Parse(typeof(GripType), (string)action["GripType"], true));
-                        writer.Write((float)action["GripRadius"]);
-                        writer.Write((float)action["GripBreakFreeTolerance"]);
-                        writer.Write((string?)action["GripBoneA"]);
-                        writer.Write((string?)action["GripBoneB"]);
-                        writer.Write((bool)action["FinishOnGrip"]);
-                    }
-                    else if (type == ActionType.Gunfire)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        writer.Write((float)action["Accuracy"]);
-                    }
-                    else if (type == ActionType.Immortal)
-                    {
-                        writer.Write((bool)action["Collide"]);
-                    }
-                    else if (type == ActionType.Invisible)
-                    {
-                        writer.Write((bool)action["NoEffect"]);
-                    }
-                    else if (type == ActionType.Jump)
-                    {
-                        writer.Write((float)action["Elevation"]);
+                    JsonArray actions = animation["Actions"].AsArray();
+                    writer.Write(actions.Count);
 
-                        float MinRange = (float)action["MinimumRange"];
-                        bool hasMinRange = MinRange != 0;
+                    foreach (JsonNode action in actions)
+                    {
+                        ActionType type = (ActionType)Enum.Parse(typeof(ActionType), (string)action["ActionType"], true);
+                        writer.Write((string)action["ActionType"]);
+                        writer.Write((float)action["ActionStart"]);
+                        writer.Write((float)action["ActionEnd"]);
 
-                        writer.Write(hasMinRange);
-                        if (hasMinRange)
+                        if (type == ActionType.Block)
                         {
-                            writer.Write(MinRange);
+                            writer.Write((int)action["WeaponSlot"]);
                         }
-
-                        float MaxRange = (float)action["MaximumRange"];
-                        bool hasMaxRange = MaxRange != 0;
-
-                        writer.Write(hasMaxRange);
-                        if (hasMaxRange)
+                        else if (type == ActionType.BreakFree)
                         {
-                            writer.Write(MaxRange);
+                            writer.Write((float)action["Magnitude"]);
+                            writer.Write((int)action["WeaponSlot"]);
                         }
-                    }
-                    else if (type == ActionType.Move)
-                    {
-                        JsonArray velocity = action["Velocity"].AsArray();
-                        for (var i = 0; i < VECTOR3_LENGTH; i++)
+                        else if (type == ActionType.CameraShake)
                         {
-                            writer.Write((float)velocity[i]);
+                            writer.Write((float)action["Duuration"]);
+                            writer.Write((float)action["Magnitude"]);
                         }
-                    }
-                    else if (type == ActionType.PlayEffect)
-                    {
-                        writer.Write((string?)action["Bone"]);
-                        writer.Write((bool)action["Attached"]);
-                        writer.Write((string?)action["Effect"]);
-                        writer.Write(1.0f);
-                    }
-                    else if (type == ActionType.PlaySound)
-                    {
-                        writer.Write((string?)action["Cue"]);
-                        writer.Write((int)Enum.Parse(typeof(Banks), (string?)action["Wavebank"], true));
-                    }
-                    else if (type == ActionType.RemoveStatus)
-                    {
-                        writer.Write((string?)action["Status"]);
-                    }
-                    else if (type == ActionType.RemoveStatus)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        writer.Write((string?)action["Bone"]);
-                    }
-                    else if (type == ActionType.SpawnMissile)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        JsonArray velocity = action["Velocity"].AsArray();
-                        for (var i = 0; i < VECTOR3_LENGTH; i++)
+                        else if (type == ActionType.CastSpell)
                         {
-                            writer.Write((float)velocity[i]);
+                            bool fromStaff = (bool)action["FromStaff"];
+                            writer.Write(fromStaff);
+                            if (!fromStaff)
+                                writer.Write((string)action["Bone"]);
                         }
-                        writer.Write((bool)action["ItemAligned"]);
-                    }
-                    else if (type == ActionType.SpecialAbility)
-                    {
-                        int weaponValue = (int)action["WeaponSlot"];
-                        writer.Write(weaponValue);
-                        if (weaponValue < 0)
+                        else if (type == ActionType.Crouch)
                         {
-                            JsonNode specialAbility = action["SpecialAbility"].AsObject();
-                            writer.Write((string?)specialAbility["Type"]);
-                            writer.Write((string?)specialAbility["Animation"] ?? string.Empty);
-                            writer.Write((string?)specialAbility["Hash"] ?? string.Empty);
-
-                            JsonArray elements = specialAbility["Elements"].AsArray();
-                            writer.Write(elements.Count);
-                            foreach (string element in elements)
+                            writer.Write((float)action["Radius"]);
+                            writer.Write((float)action["Length"]);
+                        }
+                        else if (type == ActionType.DamageGrip)
+                        {
+                            writer.Write((bool)action["DamageOwner"]);
+                            JsonArray damages = action["Damages"].AsArray();
+                            writer.Write(damages.Count);
+                            foreach (JsonNode damage in damages)
                             {
-                                writer.Write((int)Enum.Parse(typeof(Elements), element, true));
+                                writer.Write((int)Enum.Parse(typeof(AttackProperties), (string)damage["AttackProperty"], true));
+                                writer.Write((int)Enum.Parse(typeof(Elements), (string)damage["Element"], true));
+                                writer.Write((float)damage["Amount"]);
+                                writer.Write((float)damage["Magnitude"]);
                             }
                         }
-                    }
-                    else if (type == ActionType.Suicide)
-                    {
-                        writer.Write((bool)action["Overkill"]);
-                    }
-                    else if (type == ActionType.Tongue)
-                    {
-                        writer.Write((float)action["MaxLength"]);
-                    }
-                    else if (type == ActionType.WeaponVisibility)
-                    {
-                        writer.Write((int)action["WeaponSlot"]);
-                        writer.Write((bool)action["Visible"]);
-                    }
+                        else if (type == ActionType.DealDamage)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            writer.Write((byte)Enum.Parse(typeof(Targets), (string)action["Target"], true));
+                        }
+                        else if (type == ActionType.DetachItem)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            JsonArray velocity = action["Velocity"].AsArray();
+                            for (var i = 0; i < VECTOR3_LENGTH; i++)
+                            {
+                                writer.Write((float)velocity[i]);
+                            }
+                        }
+                        else if (type == ActionType.Ethereal)
+                        {
+                            writer.Write((bool)action["Ethereal"]);
+                            writer.Write((float)action["EtherealAlpha"]);
+                            writer.Write((float)action["EtherealSpeed"]);
+                        }
+                        else if (type == ActionType.Grip)
+                        {
+                            writer.Write((byte)Enum.Parse(typeof(GripType), (string)action["GripType"], true));
+                            writer.Write((float)action["GripRadius"]);
+                            writer.Write((float)action["GripBreakFreeTolerance"]);
+                            writer.Write((string?)action["GripBoneA"]);
+                            writer.Write((string?)action["GripBoneB"]);
+                            writer.Write((bool)action["FinishOnGrip"]);
+                        }
+                        else if (type == ActionType.Gunfire)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            writer.Write((float)action["Accuracy"]);
+                        }
+                        else if (type == ActionType.Immortal)
+                        {
+                            writer.Write((bool)action["Collide"]);
+                        }
+                        else if (type == ActionType.Invisible)
+                        {
+                            writer.Write((bool)action["NoEffect"]);
+                        }
+                        else if (type == ActionType.Jump)
+                        {
+                            writer.Write((float)action["Elevation"]);
 
+                            float MinRange = (float)action["MinimumRange"];
+                            bool hasMinRange = MinRange != 0;
+
+                            writer.Write(hasMinRange);
+                            if (hasMinRange)
+                            {
+                                writer.Write(MinRange);
+                            }
+
+                            float MaxRange = (float)action["MaximumRange"];
+                            bool hasMaxRange = MaxRange != 0;
+
+                            writer.Write(hasMaxRange);
+                            if (hasMaxRange)
+                            {
+                                writer.Write(MaxRange);
+                            }
+                        }
+                        else if (type == ActionType.Move)
+                        {
+                            JsonArray velocity = action["Velocity"].AsArray();
+                            for (var i = 0; i < VECTOR3_LENGTH; i++)
+                            {
+                                writer.Write((float)velocity[i]);
+                            }
+                        }
+                        else if (type == ActionType.PlayEffect)
+                        {
+                            writer.Write((string?)action["Bone"]);
+                            writer.Write((bool)action["Attached"]);
+                            writer.Write((string?)action["Effect"]);
+                            writer.Write(1.0f);
+                        }
+                        else if (type == ActionType.PlaySound)
+                        {
+                            writer.Write((string?)action["Cue"]);
+                            writer.Write((int)Enum.Parse(typeof(Banks), (string?)action["Wavebank"], true));
+                        }
+                        else if (type == ActionType.RemoveStatus)
+                        {
+                            writer.Write((string?)action["Status"]);
+                        }
+                        else if (type == ActionType.RemoveStatus)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            writer.Write((string?)action["Bone"]);
+                        }
+                        else if (type == ActionType.SpawnMissile)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            JsonArray velocity = action["Velocity"].AsArray();
+                            for (var i = 0; i < VECTOR3_LENGTH; i++)
+                            {
+                                writer.Write((float)velocity[i]);
+                            }
+                            writer.Write((bool)action["ItemAligned"]);
+                        }
+                        else if (type == ActionType.SpecialAbility)
+                        {
+                            int weaponValue = (int)action["WeaponSlot"];
+                            writer.Write(weaponValue);
+                            if (weaponValue < 0)
+                            {
+                                JsonNode specialAbility = action["SpecialAbility"].AsObject();
+                                writer.Write((string?)specialAbility["Type"]);
+                                writer.Write((string?)specialAbility["Animation"] ?? string.Empty);
+                                writer.Write((string?)specialAbility["Hash"] ?? string.Empty);
+
+                                JsonArray elements = specialAbility["Elements"].AsArray();
+                                writer.Write(elements.Count);
+                                foreach (string element in elements)
+                                {
+                                    writer.Write((int)Enum.Parse(typeof(Elements), element, true));
+                                }
+                            }
+                        }
+                        else if (type == ActionType.Suicide)
+                        {
+                            writer.Write((bool)action["Overkill"]);
+                        }
+                        else if (type == ActionType.Tongue)
+                        {
+                            writer.Write((float)action["MaxLength"]);
+                        }
+                        else if (type == ActionType.WeaponVisibility)
+                        {
+                            writer.Write((int)action["WeaponSlot"]);
+                            writer.Write((bool)action["Visible"]);
+                        }
+
+                    }
                 }
-            }
 
-            for (var i = 0; i < 26; i++)
+            }
+            for (var i = 0; i < 27 - setArray.Count; i++)
             {
                 writer.Write(0);
             }

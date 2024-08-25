@@ -73,6 +73,7 @@
     [Flags]
     public enum Banks : int
     {
+        None = 0,
         WaveBank = 1,
         Music = 2,
         Ambience = 4,

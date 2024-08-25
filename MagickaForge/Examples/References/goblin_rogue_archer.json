@@ -1,0 +1,769 @@
+﻿{
+  "XNBType": "character",
+  "ModernMagicka": true,
+  "Name": "goblin_rogue_archer",
+  "LocalizedName": "#Ent_Goblin_Ranger",
+  "Faction": "Evil",
+  "BloodType": "Regular",
+  "IsEthereal": false,
+  "LooksEthereal": false,
+  "Fearless": false,
+  "Uncharmable": false,
+  "Nonslippery": false,
+  "HasFairy": false,
+  "CanSeeInvisible": false,
+  "Sounds": [],
+  "Gibs": [
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic01",
+      "Mass": 10,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic02",
+      "Mass": 15,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic03",
+      "Mass": 15,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic04",
+      "Mass": 15,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic05",
+      "Mass": 15,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic06",
+      "Mass": 15,
+      "Scale": 1
+    }
+  ],
+  "Lights": [],
+  "MaxHitpoints": 700,
+  "NumberOfHealthbars": 1,
+  "Undying": false,
+  "UndieTime": 0,
+  "UndieHitpoints": 700,
+  "PainTolerance": 10,
+  "KnockdownTolerance": 0,
+  "ScoreValue": 70,
+  "XPValue": 70,
+  "RewardOnKill": true,
+  "RewardOnOverkill": true,
+  "Regeneration": 0,
+  "MaxPanic": 0.25,
+  "ZapModifier": 0,
+  "Length": 0,
+  "Radius": 0.8,
+  "Mass": 55,
+  "Speed": 3.5,
+  "TurnSpeed": 5,
+  "BleedRate": 35,
+  "StunTime": 2,
+  "SummonElementBank": "None",
+  "SummonElementCue": "",
+  "Resistances": [],
+  "Models": [
+    {
+      "Model": "..\\..\\models\\characters\\goblin\\goblin_rogue_archer_mesh_0",
+      "Scale": 1,
+      "Tint": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "Animation": "..\\..\\models\\characters\\goblin\\goblin_animation",
+  "Effects": [],
+  "AnimationSets": [
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_ranged0",
+          "AnimationKey": "attack_bow_direct",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.2,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0.22,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 1,
+              "Visible": true
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0.67,
+              "ActionEnd": 1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.67,
+              "ActionEnd": 0,
+              "WeaponSlot": 0,
+              "Velocity": [
+                0,
+                0,
+                0
+              ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.34,
+              "ActionEnd": 0,
+              "Cue": "wep_bow_fire_pre",
+              "Wavebank": "Weapons"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_ranged1",
+          "AnimationKey": "attack_bow_volley",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.15,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0.16,
+              "ActionEnd": 0.72,
+              "WeaponSlot": 1,
+              "Visible": true
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0.73,
+              "ActionEnd": 1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.73,
+              "ActionEnd": 0,
+              "WeaponSlot": 0,
+              "Velocity": [
+                0,
+                0,
+                0
+              ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.34,
+              "ActionEnd": 0,
+              "Cue": "wep_bow_fire_pre",
+              "Wavebank": "Weapons"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.34,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_hood_attack",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "taunt0",
+          "AnimationKey": "taunt_rogue0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_taunt",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "taunt1",
+          "AnimationKey": "taunt_rogue1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_angry",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "die0",
+          "AnimationKey": "die0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_death",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.4,
+              "ActionEnd": 0,
+              "Cue": "misc_bodyfall_light",
+              "Wavebank": "Misc"
+            },
+            {
+              "ActionType": "Move",
+              "ActionStart": 0,
+              "ActionEnd": 0.65,
+              "Velocity": [
+                0,
+                0,
+                2.6
+              ]
+            }
+          ]
+        },
+        {
+          "AnimationType": "die1",
+          "AnimationKey": "die1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_death",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.4,
+              "ActionEnd": 0,
+              "Cue": "misc_bodyfall_light",
+              "Wavebank": "Misc"
+            },
+            {
+              "ActionType": "Move",
+              "ActionStart": 0,
+              "ActionEnd": 0.65,
+              "Velocity": [
+                0,
+                0,
+                2.6
+              ]
+            }
+          ]
+        },
+        {
+          "AnimationType": "die_drown0",
+          "AnimationKey": "die_drown0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_drown01",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.65,
+              "ActionEnd": 0,
+              "Cue": "chr_generic_drown02",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "die_drown1",
+          "AnimationKey": "die_drown1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_drown01",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.65,
+              "ActionEnd": 0,
+              "Cue": "chr_generic_drown02",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "hit",
+          "AnimationKey": "hit",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_pain",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "hit_fly",
+          "AnimationKey": "hit_fly",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_stun_end",
+          "AnimationKey": "hit_stun_end",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_stun_begin",
+          "AnimationKey": "hit_stun_begin",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_slide",
+          "AnimationKey": "hit_slide",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.1,
+              "WeaponSlot": 1,
+              "Visible": false
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "misc_slide",
+              "Wavebank": "Misc"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "RightFootEnd",
+              "Attached": false,
+              "Effect": "generic_dust_slide"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "LeftFootEnd",
+              "Attached": false,
+              "Effect": "generic_dust_slide"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.1,
+              "WeaponSlot": 1,
+              "Visible": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_wnd",
+          "AnimationKey": "idle_wnd",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "idle_agg",
+          "AnimationSpeed": 1.3,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "move_walk",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.9,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.9,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_panic",
+          "AnimationKey": "move_panic",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_wnd",
+          "AnimationKey": "move_wnd",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_fall",
+          "AnimationKey": "move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.65,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_fall",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "special0",
+          "AnimationKey": "spec_cling",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "spawn",
+          "AnimationKey": "spec_bushjump",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_angry",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "Hips",
+              "Attached": false,
+              "Effect": "goblin_rogue_bushjump"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cutscene_fail",
+          "AnimationKey": "spec_no",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "spec_alert0",
+          "AnimationKey": "spec_alert_rogue0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_angry",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_alert1",
+          "AnimationKey": "spec_alert_rogue0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_angry",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_alert2",
+          "AnimationKey": "spec_alert_rogue0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "talk_casual0",
+          "AnimationKey": "talk_casual0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.65,
+              "ActionEnd": 0,
+              "Cue": "chr_goblin_interact_long",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_entangled",
+          "AnimationKey": "spec_entangled",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "spec_entangled_attack",
+          "AnimationKey": "spec_entangled_attack",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    }
+  ],
+  "Equipment": [
+    {
+      "Bone": "leftattach",
+      "Item": "..\\items\\NPC\\goblin_bow_standard_0",
+      "Offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Bone": "rightattach",
+      "Item": "..\\items\\NPC\\goblin_arrow_0",
+      "Offset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "EventConditions": [],
+  "AlertRadius": 15,
+  "GroupChase": 0,
+  "GroupSeperation": 4,
+  "GroupCohesion": 0.4,
+  "GroupAlignment": 1,
+  "GroupWander": 0,
+  "FriendlyAvoidance": 1,
+  "EnemyAvoidance": 1,
+  "SightAvoidance": 2,
+  "DangerAvoidance": 2,
+  "AngerWeight": 1,
+  "DistanceWeight": 1,
+  "HealthWeight": 1,
+  "Flocking": true,
+  "BreakFreeStrength": 1,
+  "Abilities": [
+    {
+      "AbilityType": "Ranged",
+      "Cooldown": 0,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "",
+      "Animations": [
+        "attack_ranged0"
+      ],
+      "MinimumRange": 3,
+      "MaximumRange": 14,
+      "Elevation": 0.087,
+      "Arc": 0.06,
+      "Accuracy": 0.5,
+      "Weapons": [
+        0
+      ]
+    },
+    {
+      "AbilityType": "Ranged",
+      "Cooldown": 0,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "",
+      "Animations": [
+        "attack_ranged1"
+      ],
+      "MinimumRange": 12,
+      "MaximumRange": 22,
+      "Elevation": 0.95,
+      "Arc": 0.06,
+      "Accuracy": 0.5,
+      "Weapons": [
+        0
+      ]
+    },
+    {
+      "AbilityType": "Melee",
+      "Cooldown": 10,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "distExp(0,15)*0.75 - s.FriendlyDensity*0.5 - Danger(Offensive)",
+      "Animations": [
+        "taunt0",
+        "taunt1"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 50,
+      "ArcAngle": 0.34,
+      "Weapons": [
+        0
+      ],
+      "Rotate": false
+    }
+  ],
+  "MoveAbilities": [],
+  "Buffs": [],
+  "Auras": []
+}

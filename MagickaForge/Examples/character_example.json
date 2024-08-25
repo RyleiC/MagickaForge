@@ -1,7 +1,6 @@
 ﻿{
   "XNBType": "character",
   "ModernMagicka": true,
-
   "Name": "character_example",
   "LocalizedName": "#Ent_Goblin_Rogue",
   "Faction": "Evil",
@@ -14,7 +13,6 @@
   "HasFairy": false,
   "CanSeeInvisible": false,
   "Sounds": [],
-
   "Gibs": [
     {
       "Model": "..\\..\\Models\\Characters\\gib_generic01",
@@ -48,13 +46,13 @@
       "Radius": 8,
       "DiffuseColor": [
         0.4,
-        0.0,
-        0.0
+        0,
+        0
       ],
       "AmbientColor": [
         0.4,
-        0.0,
-        0.0
+        0,
+        0
       ],
       "SpecularAmount": 1,
       "LightVariationType": "None",
@@ -65,10 +63,10 @@
   "MaxHitpoints": 800,
   "NumberOfHealthbars": 1,
   "Undying": false,
-  "UndieTime": 1.0,
+  "UndieTime": 1,
   "UndieHitpoints": 800,
   "PainTolerance": 1000,
-  "KnockdownTolerance": 150.0,
+  "KnockdownTolerance": 150,
   "ScoreValue": 3000,
   "XPValue": 1000,
   "RewardOnKill": true,
@@ -117,12 +115,15 @@
       "StatusImmunity": true
     }
   ],
-
   "Models": [
     {
       "Model": "..\\..\\models\\characters\\wizard\\avatar_purple_mesh_0",
       "Scale": 1,
-      "Tint": [ 0, 0, 0 ]
+      "Tint": [
+        0,
+        0,
+        0
+      ]
     }
   ],
   "Animation": "..\\..\\models\\characters\\wizard\\wizard_animation_0",
@@ -132,164 +133,155 @@
       "Effect": "Beam_Cold_Source"
     }
   ],
-  "AnimationClips": [
+  "AnimationSets": [
     {
-      "AnimationType": "die0",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
+      "AnimationClips": [
         {
-          "ActionType": "Suicide",
-          "ActionStart": 0.01,
-          "ActionEnd": 1,
-          "Overkill": true
-        }
-      ]
-    },
-    {
-      "AnimationType": "die_drown",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "spec_entangled",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "spec_entangled_attack",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "hit",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "idle",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "idle_agg",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "idle_wnd",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "hit_fly",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "hit_stun_begin",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "hit_stun_end",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "special0",
-      "AnimationKey": "cast_force_railgun",
-      "AnimationSpeed": 0.25,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-        {
-          "ActionType": "CastSpell",
-          "ActionStart": 0.01,
-          "ActionEnd": 1,
-          "FromStaff": true
+          "AnimationType": "die0",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Suicide",
+              "ActionStart": 0.01,
+              "ActionEnd": 1,
+              "Overkill": true
+            }
+          ]
         },
         {
-          "ActionType": "SpecialAbility",
-          "ActionStart": 0.01,
-          "ActionEnd": 1,
-          "WeaponSlot": -1,
-          "SpecialAbility": {
-            "Type": "RandomTeleport",
-            "Animation": "None",
-            "Hash": "",
-            "Elements": []
-          }
+          "AnimationType": "die_drown",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "spec_entangled",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "spec_entangled_attack",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_wnd",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_fly",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_stun_begin",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "hit_stun_end",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "special0",
+          "AnimationKey": "cast_force_railgun",
+          "AnimationSpeed": 0.25,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.01,
+              "ActionEnd": 1,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "SpecialAbility",
+              "ActionStart": 0.01,
+              "ActionEnd": 1,
+              "WeaponSlot": -1,
+              "SpecialAbility": {
+                "Type": "RandomTeleport",
+                "Animation": "None",
+                "Hash": "",
+                "Elements": []
+              }
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_panic",
+          "AnimationKey": "idle_unarmed",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": []
         }
-      ]
-    },
-    {
-      "AnimationType": "move_walk",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "move_run",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
-      ]
-    },
-    {
-      "AnimationType": "move_panic",
-      "AnimationKey": "idle_unarmed",
-      "AnimationSpeed": 1.0,
-      "BlendTime": 0,
-      "Loop": false,
-      "Actions": [
       ]
     }
   ],
@@ -297,12 +289,20 @@
     {
       "Bone": "rightattach",
       "Item": "..\\items\\Wizard\\weapon_unarmed",
-      "Offset": [ 0, 0, 0 ]
+      "Offset": [
+        0,
+        0,
+        0
+      ]
     },
     {
       "Bone": "leftattach",
       "Item": "..\\items\\Wizard\\staff_basic",
-      "Offset": [ 0, 0, 0 ]
+      "Offset": [
+        0,
+        0,
+        0
+      ]
     }
   ],
   "EventConditions": [],
@@ -327,14 +327,22 @@
       "Cooldown": 0,
       "AbilityTarget": "E",
       "FuzzyExpression": "1000",
-      "Animations": [ "special0" ],
+      "Animations": [
+        "special0"
+      ],
       "MinimumRange": 0,
       "MaximumRange": 100,
       "Angle": 0.017,
       "Power": 4,
       "ChantTime": 0.004,
       "CastType": "Force",
-      "Elements": [ "Arcane", "Steam", "Steam", "Lightning", "Lightning" ]
+      "Elements": [
+        "Arcane",
+        "Steam",
+        "Steam",
+        "Lightning",
+        "Lightning"
+      ]
     }
   ],
   "MoveAbilities": [],
@@ -344,7 +352,11 @@
       "AuraTarget": "Self",
       "AuraType": "Buff",
       "VisualCategory": "Offensive",
-      "Color": [ 0.7, 0.7, 1 ],
+      "Color": [
+        0.7,
+        0.7,
+        1
+      ],
       "Effect": "",
       "Duration": 150000000,
       "Radius": 3,
@@ -352,7 +364,11 @@
       "Faction": "None",
       "BuffType": "ModifySpellTTL",
       "BuffVisualCategory": "Offensive",
-      "BuffColor": [ 0.4, 0.6, 1 ],
+      "BuffColor": [
+        0.4,
+        0.6,
+        1
+      ],
       "BuffRadius": 0.3,
       "BuffEffect": "",
       "SpellTimeMultiplier": 15000,
