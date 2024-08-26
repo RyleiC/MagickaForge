@@ -11,13 +11,13 @@
     <None Update="Examples\character_example.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Examples\References\wizard.json">
+    <None Update="Examples\References\Characters\wizard.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Examples\References\goblin_rogue.json">
+    <None Update="Examples\References\Characters\goblin_rogue.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Examples\References\goblin_rogue_archer.json">
+    <None Update="Examples\References\Characters\goblin_rogue_archer.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Examples\staff_example.json">

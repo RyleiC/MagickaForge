@@ -1,0 +1,1991 @@
+{
+  "XNBType": "character",
+  "ModernMagicka": true,
+  "Name": "wizard",
+  "LocalizedName": "#Ent_Wizard",
+  "Faction": "Friendly",
+  "BloodType": "Regular",
+  "IsEthereal": false,
+  "LooksEthereal": false,
+  "Fearless": false,
+  "Uncharmable": false,
+  "Nonslippery": false,
+  "HasFairy": false,
+  "CanSeeInvisible": false,
+  "Sounds": [],
+  "Gibs": [
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic01",
+      "Mass": 10,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic02",
+      "Mass": 10,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic03",
+      "Mass": 10,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic04",
+      "Mass": 10,
+      "Scale": 1
+    },
+    {
+      "Model": "..\\..\\Models\\Characters\\gib_generic05",
+      "Mass": 10,
+      "Scale": 1
+    }
+  ],
+  "Lights": [],
+  "MaxHitpoints": 1000,
+  "NumberOfHealthbars": 1,
+  "Undying": false,
+  "UndieTime": 0,
+  "UndieHitpoints": 1000,
+  "PainTolerance": 50,
+  "KnockdownTolerance": 0,
+  "ScoreValue": 3000,
+  "XPValue": 3000,
+  "RewardOnKill": true,
+  "RewardOnOverkill": true,
+  "Regeneration": 0,
+  "MaxPanic": 0.75,
+  "ZapModifier": 0,
+  "Length": 0.5,
+  "Radius": 0.75,
+  "Mass": 70,
+  "Speed": 5,
+  "TurnSpeed": 7,
+  "BleedRate": 50,
+  "StunTime": 2,
+  "SummonElementBank": "Characters",
+  "SummonElementCue": "chr_wizard_summon_element",
+  "Resistances": [],
+  "Models": [
+    {
+      "Model": "..\\..\\models\\characters\\wizard\\avatar_wizard1_mesh_0",
+      "Scale": 1,
+      "Tint": [
+        0.75,
+        0.4,
+        0.8
+      ]
+    },
+    {
+      "Model": "..\\..\\models\\characters\\wizard\\avatar_wizard2_mesh_0",
+      "Scale": 1,
+      "Tint": [
+        0.75,
+        0.4,
+        0.8
+      ]
+    },
+    {
+      "Model": "..\\..\\models\\characters\\wizard\\avatar_wizard3_mesh_0",
+      "Scale": 1,
+      "Tint": [
+        0.75,
+        0.4,
+        0.8
+      ]
+    },
+    {
+      "Model": "..\\..\\models\\characters\\wizard\\avatar_wizard4_mesh_0",
+      "Scale": 1,
+      "Tint": [
+        0.75,
+        0.4,
+        0.8
+      ]
+    }
+  ],
+  "Animation": "..\\..\\models\\characters\\wizard\\wizard_animation_0",
+  "Effects": [],
+  "AnimationSets": [
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "crush_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.30,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.28,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "crush_medium_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.30,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.28,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_throwitem",
+          "AnimationKey": "grenade_throw",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.28,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 1,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_recoil",
+          "AnimationKey": "attack_recoil",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.4,
+              "ActionEnd": 0,
+              "Cue": "wep_sword_deflect_armor",
+              "Wavebank": "Weapons"
+            }
+          ]
+        },
+        {
+          "AnimationType": "block",
+          "AnimationKey": "block",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Block",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "charge_area",
+          "AnimationKey": "cast_area_charge_build",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "cast_area_charge_build"
+            }
+          ]
+        },
+        {
+          "AnimationType": "charge_area_loop",
+          "AnimationKey": "cast_area_charge_loop",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "cast_area_charge_max"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_area_blast",
+          "AnimationKey": "cast_area_blast",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.37,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_area_fireworks",
+          "AnimationKey": "cast_area_fireworks",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_area_ground",
+          "AnimationKey": "cast_area_ground",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.37,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_area_lightning",
+          "AnimationKey": "cast_area_lightning",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.125,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_area_push",
+          "AnimationKey": "cast_area_push",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_lightning",
+          "AnimationKey": "cast_force_lightning",
+          "AnimationSpeed": 1.5,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.14,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "charge_force",
+          "AnimationKey": "cast_force_charge_build",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "cast_force_charge_build"
+            }
+          ]
+        },
+        {
+          "AnimationType": "charge_force_loop",
+          "AnimationKey": "cast_force_charge_loop",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "cast_force_charge_max"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_projectile",
+          "AnimationKey": "cast_force_projectile",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.01,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_push",
+          "AnimationKey": "cast_force_projectile",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_railgun",
+          "AnimationKey": "cast_force_railgun",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_shield",
+          "AnimationKey": "cast_area_fireworks",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_force_spray",
+          "AnimationKey": "cast_force_spray",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_magick_global",
+          "AnimationKey": "cast_magick_global",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.5,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Bone": "head",
+              "Attached": false,
+              "Effect": "magick_generic"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_magick_direct",
+          "AnimationKey": "cast_magick_direct",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Bone": "hips",
+              "Attached": false,
+              "Effect": "magick_generic_2"
+            },
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.5,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_magick_self",
+          "AnimationKey": "cast_area_fireworks",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Bone": "hips",
+              "Attached": false,
+              "Effect": "magick_generic_2"
+            },
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_spell0",
+          "AnimationKey": "cast_area_fireworks",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Bone": "hips",
+              "Attached": false,
+              "Effect": "magick_generic_2"
+            },
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.99,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_magick_sweep",
+          "AnimationKey": "cast_magick_sweep",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Bone": "hips",
+              "Attached": false,
+              "Effect": "magick_generic_2"
+            },
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_self",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1.5,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.05,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword",
+          "AnimationKey": "cast_sword",
+          "AnimationSpeed": 3,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.27,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword01",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword_lightning",
+          "AnimationKey": "cast_sword_lightning",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.27,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.25,
+              "ActionEnd": 0.28,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.2,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword02",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword_projectile",
+          "AnimationKey": "cast_sword_projectile",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.01,
+              "ActionEnd": 0.45,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.2,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword02",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword_railgun",
+          "AnimationKey": "cast_sword_railgun",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.27,
+              "ActionEnd": 0.0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.2,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword02",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword_shield",
+          "AnimationKey": "cast_sword_shield",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.27,
+              "ActionEnd": 0.0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.2,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword02",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_sword_spray",
+          "AnimationKey": "cast_sword_lightning",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.27,
+              "ActionEnd": 0.0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.25,
+              "ActionEnd": 0.28,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.2,
+              "ActionEnd": 0,
+              "Cue": "spell_cast_sword02",
+              "Wavebank": "Spells"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cast_spell1",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.99,
+              "ActionEnd": 0,
+              "FromStaff": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "boost",
+          "AnimationKey": "boost",
+          "AnimationSpeed": 1.5,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cast_teleport",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "hit",
+          "AnimationKey": "hit",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "chr_wizard_hit",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "hit_fly",
+          "AnimationKey": "hit_fly",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "hit_stun_end",
+          "AnimationKey": "hit_stun_end",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "hit_stun_begin",
+          "AnimationKey": "hit_stun_begin",
+          "AnimationSpeed": 1.5,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "hit_slide",
+          "AnimationKey": "hit_slide",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "die0",
+          "AnimationKey": "die",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.1,
+              "ActionEnd": 0,
+              "Cue": "chr_wizard_die",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "die_drown",
+          "AnimationKey": "die_drown",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "chr_generic_drown01",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.83,
+              "ActionEnd": 0,
+              "Cue": "chr_generic_drown02",
+              "Wavebank": "Characters"
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_wnd",
+          "AnimationKey": "move_wounded",
+          "AnimationSpeed": 1.6,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "move_walk",
+          "AnimationSpeed": 1.7,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "move_run",
+          "AnimationSpeed": 1.6,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_fall",
+          "AnimationKey": "move_fall",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "move_stumble",
+          "AnimationKey": "move_encumbered",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "move_panic",
+          "AnimationKey": "move_encumbered",
+          "AnimationSpeed": 2,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "talk_casual0",
+          "AnimationKey": "interact_talk",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "pickup_weapon",
+          "AnimationKey": "pickup_weapon",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "wep_sword_pickup",
+              "Wavebank": "Weapons"
+            }
+          ]
+        },
+        {
+          "AnimationType": "pickup_staff",
+          "AnimationKey": "pickup_staff",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "ui_pickup_staff",
+              "Wavebank": "UI"
+            }
+          ]
+        },
+        {
+          "AnimationType": "pickup_magick",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "ui_pickup_magick",
+              "Wavebank": "UI"
+            }
+          ]
+        },
+        {
+          "AnimationType": "special0",
+          "AnimationKey": "drink",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.12,
+              "ActionEnd": 0,
+              "Cue": "coffee_slurp",
+              "Wavebank": "Additional"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0.22,
+              "ActionEnd": 0.8,
+              "Bone": "leftAttach",
+              "Attached": false,
+              "Effect": "drink_coffe"
+            }
+          ]
+        },
+        {
+          "AnimationType": "special1",
+          "AnimationKey": "tank_shield_bash",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Move",
+              "ActionStart": 0.21,
+              "ActionEnd": 0.64,
+              "Velocity": [ 0, 0, -8 ]
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.21,
+              "ActionEnd": 0.78,
+              "WeaponSlot": 1,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "special2",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.17,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 1,
+              "Velocity": [ 1.5, 15, 1.2 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.37,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 1,
+              "Velocity": [ -1.8, 13, -1.5 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.7,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 1,
+              "Velocity": [ -1.32, 15, 1.7 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.9,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 1,
+              "Velocity": [ 2, 14, -1.6 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.9,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 1,
+              "Velocity": [ 2, 14, -1.6 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "special3",
+          "AnimationKey": "space_charge",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Move",
+              "ActionStart": 0.0,
+              "ActionEnd": 0.7,
+              "Velocity": [ 0, 0, -8 ]
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.0,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.107,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.214,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.42,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.54,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.0,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0.57,
+              "ActionEnd": 0.78,
+              "Cue": "misc_slide",
+              "Wavebank": "Misc"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0.57,
+              "ActionEnd": 0.78,
+              "Bone": "RightFootEnd",
+              "Attached": false,
+              "Effect": "generic_dust"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0.64,
+              "ActionEnd": 0.78,
+              "Bone": "LeftFootEnd",
+              "Attached": false,
+              "Effect": "generic_dust"
+            }
+          ]
+        },
+        {
+          "AnimationType": "revive",
+          "AnimationKey": "resurrect",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "chr_spider_unburrow",
+              "Wavebank": "Characters"
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.6,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.64,
+              "ActionEnd": 0
+            },
+            {
+              "ActionType": "Immortal",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Collide": false
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0.2,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "wizard_revive"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_action0",
+          "AnimationKey": "spec_chopper_escape",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_action1",
+          "AnimationKey": "hit_stun_end",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_musician_microphone",
+          "AnimationKey": "cast_self",
+          "AnimationSpeed": 1.5,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.05,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "musician_microphone_ability",
+              "Wavebank": "Additional"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_musician_drum",
+          "AnimationKey": "spec_musician_drum",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.05,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "musician_drummer_ability",
+              "Wavebank": "Additional"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_musician_saxophone",
+          "AnimationKey": "spec_musician_saxophone",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "CastSpell",
+              "ActionStart": 0.05,
+              "ActionEnd": 0,
+              "FromStaff": true
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 0.98,
+              "WeaponSlot": 0,
+              "Visible": false
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0.98,
+              "ActionEnd": 1,
+              "WeaponSlot": 0,
+              "Visible": true
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 1,
+              "Visible": true
+            },
+            {
+              "ActionType": "PlaySound",
+              "ActionStart": 0,
+              "ActionEnd": 0,
+              "Cue": "musician_saxophone_ability",
+              "Wavebank": "Additional"
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_entangled",
+          "AnimationKey": "snare_entangled",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_entangled_attack",
+          "AnimationKey": "snare_entangled_attack",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "BreakFree",
+              "ActionStart": 0.5,
+              "ActionEnd": 0,
+              "Magnitude": 1,
+              "WeaponSlot": 0
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_grapple",
+          "AnimationKey": "snare_grapple",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_sit_sleep",
+          "AnimationKey": "sit_sleep",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_sit",
+          "AnimationKey": "sit_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_sit_talk0",
+          "AnimationKey": "sit_party",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_sit_talk1",
+          "AnimationKey": "sit_talk",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special_delorean",
+          "AnimationKey": "spec_timetravel_spawn",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "timetravel_spawn"
+            }
+          ]
+        },
+        {
+          "AnimationType": "special_lookup",
+          "AnimationKey": "spec_lookup",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.5,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special_getup0",
+          "AnimationKey": "spec_getup0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special_getup1",
+          "AnimationKey": "spec_getup1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_front_enter",
+          "AnimationKey": "spec_cart_front_enter",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_front_depart",
+          "AnimationKey": "spec_cart_front_depart",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_front_arrive",
+          "AnimationKey": "spec_cart_front_arrive",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_front_exit",
+          "AnimationKey": "spec_cart_front_exit",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_back_enter",
+          "AnimationKey": "spec_cart_back_enter",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_back_sit",
+          "AnimationKey": "spec_cart_back_sit",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_cart_back_exit",
+          "AnimationKey": "spec_cart_back_exit",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_complete0",
+          "AnimationKey": "spec_gamecomplete0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_complete1",
+          "AnimationKey": "spec_gamecomplete1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_complete2",
+          "AnimationKey": "spec_gamecomplete2",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_complete3",
+          "AnimationKey": "spec_gamecomplete3",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_teleport_out",
+          "AnimationKey": "spec_teleport_out",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0.5,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "special_portus_loop"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0.5,
+              "ActionEnd": 1,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "special_portus_end"
+            }
+          ]
+        },
+        {
+          "AnimationType": "cutscene_teleport_in",
+          "AnimationKey": "spec_teleport_in",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0,
+              "ActionEnd": 0.8,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "special_portus_loop"
+            },
+            {
+              "ActionType": "PlayEffect",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "Bone": "root",
+              "Attached": false,
+              "Effect": "special_portus_end"
+            }
+          ]
+        },
+        {
+          "AnimationType": "emote_talk0",
+          "AnimationKey": "trailer_talk",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_point0",
+          "AnimationKey": "trailer_point",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_terrified0",
+          "AnimationKey": "trailer_terrified",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.5,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_sigh0",
+          "AnimationKey": "trailer_sigh",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.4,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_confused0",
+          "AnimationKey": "emote_confused0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.4,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_confused1",
+          "AnimationKey": "emote_confused1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.4,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_confused2",
+          "AnimationKey": "emote_confused2",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.4,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_confused3",
+          "AnimationKey": "emote_confused0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.4,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_rejoice0",
+          "AnimationKey": "trailer_rejoice0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_rejoice1",
+          "AnimationKey": "trailer_rejoice1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "emote_horrified0",
+          "AnimationKey": "trailer_horrified",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.5,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_wounded_talk0",
+          "AnimationKey": "spec_morten_talk0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_wounded_talk1",
+          "AnimationKey": "spec_morten_talk1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_wounded_talk2",
+          "AnimationKey": "spec_morten_talk2",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "cutscene_fall",
+          "AnimationKey": "cutscene_fallingdown",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special4",
+          "AnimationKey": "spec_dance0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 0,
+              "Visible": false
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 1,
+              "Visible": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "special5",
+          "AnimationKey": "idle",
+          "AnimationSpeed": 10,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 0,
+              "Visible": true
+            },
+            {
+              "ActionType": "WeaponVisibility",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 1,
+              "Visible": true
+            }
+          ]
+        },
+        {
+          "AnimationType": "spec_spawn_climbup0",
+          "AnimationKey": "spawn_climbup0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "spec_spawn_climbup1",
+          "AnimationKey": "spawn_climbup1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special7",
+          "AnimationKey": "stuckledge_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": [
+          ]
+        },
+        {
+          "AnimationType": "special8",
+          "AnimationKey": "stuckledge_talk",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": false,
+          "Actions": [
+          ]
+        }
+      ]
+    }
+  ],
+  "Equipment": [
+    {
+      "Bone": "rightattach",
+      "Item": "..\\items\\Wizard\\weapon_blunt_blade",
+      "Offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Bone": "leftattach",
+      "Item": "..\\items\\Wizard\\staff_basic",
+      "Offset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "EventConditions": [],
+  "AlertRadius": 15,
+  "GroupChase": 0,
+  "GroupSeperation": 0,
+  "GroupCohesion": 0,
+  "GroupAlignment": 0,
+  "GroupWander": 0,
+  "FriendlyAvoidance": 1.5,
+  "EnemyAvoidance": 0,
+  "SightAvoidance": 1,
+  "DangerAvoidance": 2.5,
+  "AngerWeight": 1,
+  "DistanceWeight": 1,
+  "HealthWeight": 1,
+  "Flocking": false,
+  "BreakFreeStrength": 1,
+  "Abilities": [
+    {
+      "AbilityType": "Melee",
+      "Cooldown": 0,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "distExp(3)",
+      "Animations": [
+        "attack_melee0",
+        "attack_melee1"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 0.6,
+      "ArcAngle": 0.17,
+      "Weapons": [
+        0
+      ],
+      "Rotate": false
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 3,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "!s.status(wet) * (distExp(10) + t.status(wet))*0.75*LOS*!t.resistance(lightning)",
+      "Animations": [
+        "cast_force_lightning"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 8,
+      "Angle": 0.017,
+      "ChantTime": 0.2,
+      "Power": 0,
+      "CastType": "Force",
+      "Elements": [
+        "Lightning",
+        "Lightning",
+        "Lightning"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 3,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "!t.status(wet) * (distExp(6,20))*LOS*!t.resistance(fire)",
+      "Animations": [
+        "cast_force_projectile"
+      ],
+      "MinimumRange": 6,
+      "MaximumRange": 15,
+      "Angle": 0.017,
+      "ChantTime": 0.2,
+      "Power": 2,
+      "CastType": "Force",
+      "Elements": [
+        "Earth",
+        "Fire",
+        "Fire",
+        "Fire"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 8,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "(distExp(6,20))*LOS*!t.shielded",
+      "Animations": [
+        "cast_force_projectile"
+      ],
+      "MinimumRange": 3,
+      "MaximumRange": 10,
+      "Angle": 1.34,
+      "ChantTime": 0.2,
+      "Power": 1.5,
+      "CastType": "Force",
+      "Elements": [
+        "Ice",
+        "Ice"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 4,
+      "AbilityTarget": "E",
+      "FuzzyExpression": "EDensity(5)+DistLin(5)",
+      "Animations": [
+        "cast_area_push"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 5,
+      "Angle": 3.14,
+      "ChantTime": 0.01,
+      "Power": 2,
+      "CastType": "Area",
+      "Elements": [
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 15,
+      "AbilityTarget": "S",
+      "FuzzyExpression": "!s.health*danger(offensive)",
+      "Animations": [
+        "cast_self"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 50,
+      "Angle": 1.57,
+      "ChantTime": 0.2,
+      "Power": 0,
+      "CastType": "Self",
+      "Elements": [
+        "Earth",
+        "Earth",
+        "Shield"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 6,
+      "AbilityTarget": "S",
+      "FuzzyExpression": "(!s.health-0.5)*10",
+      "Animations": [
+        "cast_self"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 8,
+      "Angle": 0.06,
+      "ChantTime": 0.2,
+      "Power": 0,
+      "CastType": "Self",
+      "Elements": [
+        "Life",
+        "Life",
+        "Life"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 2,
+      "AbilityTarget": "S",
+      "FuzzyExpression": "(s.status(burning)+s.status(greased))*2",
+      "Animations": [
+        "cast_self"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 8,
+      "Angle": 0.06,
+      "ChantTime": 0.2,
+      "Power": 0,
+      "CastType": "Self",
+      "Elements": [
+        "Water"
+      ]
+    },
+    {
+      "AbilityType": "CastSpell",
+      "Cooldown": 2,
+      "AbilityTarget": "S",
+      "FuzzyExpression": "(s.status(wet)+s.status(cold)+s.status(frozen))*2",
+      "Animations": [
+        "cast_self"
+      ],
+      "MinimumRange": 0,
+      "MaximumRange": 8,
+      "Angle": 0.06,
+      "ChantTime": 0.2,
+      "Power": 0,
+      "CastType": "Self",
+      "Elements": [
+        "Fire"
+      ]
+    }
+  ],
+  "MoveAbilities": [],
+  "Buffs": [],
+  "Auras": []
+}
