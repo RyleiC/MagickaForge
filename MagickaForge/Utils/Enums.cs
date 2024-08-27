@@ -1,4 +1,4 @@
-﻿namespace MagickaForge.Enums
+﻿namespace MagickaForge.Utils
 {
     public enum WeaponClass : byte
     {

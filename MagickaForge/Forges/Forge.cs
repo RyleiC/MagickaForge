@@ -1,4 +1,4 @@
-﻿using MagickaForge.Enums;
+﻿using MagickaForge.Utils;
 using MagickaForge.Forges.Character;
 using MagickaForge.Forges.Item;
 using System.Text.Json.Nodes;
