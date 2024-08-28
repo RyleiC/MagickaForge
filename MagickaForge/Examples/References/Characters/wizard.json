@@ -1,6 +1,6 @@
 {
-  "XNBType": "character",
-  "ModernMagicka": true,
+  "_XNBType": "character",
+  "_ModernMagicka": false,
   "Name": "wizard",
   "LocalizedName": "#Ent_Wizard",
   "Faction": "Friendly",
@@ -1772,6 +1772,1332 @@
           "BlendTime": 0,
           "Loop": false,
           "Actions": [
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrust_fast_attack0",
+          "AnimationSpeed": 1.2,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.5,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrust_fast_attack1",
+          "AnimationSpeed": 1.2,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.5,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "thrust_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrust_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrust_medium_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "thrust_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrust_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrust_medium_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "thrust_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "crush_fast_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.55,
+              "ActionEnd": 0.64,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.31,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "crush_fast_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.55,
+              "ActionEnd": 0.64,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.31,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "crush_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.31,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.28,
+              "ActionEnd": 0.60,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "crush_medium_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.30,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            },
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.28,
+              "ActionEnd": 0.60,
+              "WeaponSlot": 0,
+              "Target": "All"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "crush_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "crush_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1.7,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1.6,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "crush_slow_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.55,
+              "ActionEnd": 0.65,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "crush_slow_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.55,
+              "ActionEnd": 0.65,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "crush_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "crush_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1.7,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1.6,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "slash_fast_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.125,
+              "ActionEnd": 0.5,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "slash_fast_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.125,
+              "ActionEnd": 0.5,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "slash_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "slash_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.3,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.41,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "slash_medium_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.44,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "slash_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "slash_slow_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.64,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "slash_slow_attack1",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.65,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "slash_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrown_fast_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrown_fast_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrown_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrown_medium_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "thrown_slow_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "thrown_slow_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.1,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.6,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "crush_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "thrown_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "crush_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "unarmed_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "unarmed_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.05,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "DealDamage",
+              "ActionStart": 0.5,
+              "ActionEnd": 0.66,
+              "WeaponSlot": 0,
+              "Target": "All"
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.32,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "unarmed_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "unarmed_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "unarmed_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "handgun_attack",
+          "AnimationSpeed": 1.2,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.9,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "handgun_attack",
+          "AnimationSpeed": 1.2,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.9,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "handgun_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "handgun_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "block",
+          "AnimationKey": "rifle_block",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Crouch",
+              "ActionStart": 0.0,
+              "ActionEnd": 1.0,
+              "Radius": 0.5,
+              "Length": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "rifle_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "rifle_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "rifle_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "rifle_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "m60_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "m60_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "block",
+          "AnimationKey": "rifle_block",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Crouch",
+              "ActionStart": 0.0,
+              "ActionEnd": 1.0,
+              "Radius": 0.5,
+              "Length": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "m60_attack0",
+          "AnimationSpeed": 1.66,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "m60_attack0",
+          "AnimationSpeed": 1.66,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0,
+              "ActionEnd": 1,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "m60_idle",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "m60_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "m60_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "m60_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "block",
+          "AnimationKey": "rifle_block",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Crouch",
+              "ActionStart": 0.0,
+              "ActionEnd": 1.0,
+              "Radius": 0.5,
+              "Length": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "AnimationClips": [
+        {
+          "AnimationType": "attack_melee0",
+          "AnimationKey": "heavy_attack0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Gunfire",
+              "ActionStart": 0.1,
+              "ActionEnd": 0.6,
+              "WeaponSlot": 0,
+              "Accuracy": 1
+            },
+            {
+              "ActionType": "SpawnMissile",
+              "ActionStart": 0.2,
+              "ActionEnd": 0.0,
+              "WeaponSlot": 0,
+              "Velocity": [ 0, 0, 0 ],
+              "ItemAligned": false
+            }
+          ]
+        },
+        {
+          "AnimationType": "attack_melee1",
+          "AnimationKey": "heavy_reload0",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.001,
+          "Loop": false,
+          "Actions": [
+            {
+              "ActionType": "Playsound",
+              "ActionStart": 0.8,
+              "ActionEnd": 0,
+              "Cue": "wep_rpg_reload",
+              "Wavebank": "Weapons"
+            }
+          ]
+        },
+        {
+          "AnimationType": "idle",
+          "AnimationKey": "heavy_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "idle_agg",
+          "AnimationKey": "heavy_idle_agg",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": []
+        },
+        {
+          "AnimationType": "move_walk",
+          "AnimationKey": "heavy_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "move_run",
+          "AnimationKey": "heavy_move_run",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.33,
+              "ActionEnd": 0.0
+            },
+            {
+              "ActionType": "Footstep",
+              "ActionStart": 0.82,
+              "ActionEnd": 0.0
+            }
+          ]
+        },
+        {
+          "AnimationType": "block",
+          "AnimationKey": "rifle_block",
+          "AnimationSpeed": 1,
+          "BlendTime": 0.0,
+          "Loop": true,
+          "Actions": [
+            {
+              "ActionType": "Crouch",
+              "ActionStart": 0.0,
+              "ActionEnd": 1.0,
+              "Radius": 0.5,
+              "Length": 0
+            }
           ]
         }
       ]

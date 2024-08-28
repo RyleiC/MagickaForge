@@ -581,8 +581,8 @@ namespace MagickaForge.Forges.Character
                             {
                                 JsonNode specialAbility = action["SpecialAbility"].AsObject();
                                 writer.Write((string?)specialAbility["Type"]);
-                                writer.Write((string?)specialAbility["Animation"] ?? string.Empty);
-                                writer.Write((string?)specialAbility["Hash"] ?? string.Empty);
+                                writer.Write((string?)specialAbility["Animation"]);
+                                writer.Write((string?)specialAbility["Hash"]);
 
                                 JsonArray elements = specialAbility["Elements"].AsArray();
                                 writer.Write(elements.Count);

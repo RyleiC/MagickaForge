@@ -1,6 +1,6 @@
 ﻿{
-  "XNBType": "character",
-  "ModernMagicka": true,
+  "_XNBType": "character",
+  "_ModernMagicka": true,
   "Name": "goblin_rogue_archer",
   "LocalizedName": "#Ent_Goblin_Ranger",
   "Faction": "Evil",

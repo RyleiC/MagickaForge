@@ -45,7 +45,7 @@ namespace MagickaForge.Forges
                     reader.Close();
                 }
 
-                string XNBType = ((string)jsonRoot["XNBType"]).ToLower();
+                string XNBType = ((string)jsonRoot["_XNBType"]).ToLower();
 
                 switch (XNBType)
                 {
@@ -54,7 +54,7 @@ namespace MagickaForge.Forges
                         break;
 
                     case "character":
-                        CharacterForge characterForge = new CharacterForge(InstructionPath, jsonRoot, (bool)jsonRoot["ModernMagicka"]);
+                        CharacterForge characterForge = new CharacterForge(InstructionPath, jsonRoot, (bool)jsonRoot["_ModernMagicka"]);
                         break;
 
                     default:
