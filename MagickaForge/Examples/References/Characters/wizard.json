@@ -1,8 +1,8 @@
 {
   "_XNBType": "character",
-  "_ModernMagicka": false,
+  "_ModernMagicka": true,
   "Name": "wizard",
-  "LocalizedName": "#Ent_Wizard",
+  "LocalizedName": "#Ent_Human_Wizard",
   "Faction": "Friendly",
   "BloodType": "Regular",
   "IsEthereal": false,
